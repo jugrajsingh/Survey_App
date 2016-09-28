@@ -34,6 +34,7 @@
     <image name="ComboBox.sel#borderTop_1.png" type="multi"  />
     <image name="ComboBox.sel#borderTopL_1.png" type="multi"  />
     <image name="ComboBox.sel#borderTopR_1.png" type="multi"  />
+    <ui name="dateOftestingDialog" />
     <image name="Dialog.borderBottom_1.png" type="multi"  />
     <image name="Dialog.borderBottomL_1.png" type="multi"  />
     <image name="Dialog.borderBottomR_1.png" type="multi"  />
@@ -56,6 +57,7 @@
     <ui name="newBoreData" />
     <ui name="newBoreEntry" />
     <ui name="newProject" />
+    <ui name="newUserEntry" />
     <image name="OKGR.borderBottom_1.png" type="multi"  />
     <image name="OKGR.borderBottomL_1.png" type="multi"  />
     <image name="OKGR.borderBottomR_1.png" type="multi"  />
