@@ -242,18 +242,6 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.spinner.DateSpinner findDateOfTestingDateSpinner(Component root) {
-        return (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", root);
-    }
-
-    public com.codename1.ui.spinner.DateSpinner findDateOfTestingDateSpinner() {
-        com.codename1.ui.spinner.DateSpinner cmp = (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
     public com.codename1.ui.Container findContainer2(Component root) {
         return (com.codename1.ui.Container)findByName("Container2", root);
     }
@@ -262,6 +250,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Container cmp = (com.codename1.ui.Container)findByName("Container2", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Container)findByName("Container2", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.spinner.DateSpinner findDateOfTestingDateSpinner(Component root) {
+        return (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", root);
+    }
+
+    public com.codename1.ui.spinner.DateSpinner findDateOfTestingDateSpinner() {
+        com.codename1.ui.spinner.DateSpinner cmp = (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.spinner.DateSpinner)findByName("dateOfTestingDateSpinner", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -382,18 +382,6 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.Button findNewPreojectInPresenceOfAddButton(Component root) {
-        return (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", root);
-    }
-
-    public com.codename1.ui.Button findNewPreojectInPresenceOfAddButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -614,6 +602,18 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.Button findNewProjectInPresenceOfAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectInPresenceOfAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectInPresenceOfAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectInPresenceOfAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newProjectInPresenceOfAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.List findNewProjectSubmittedToList(Component root) {
         return (com.codename1.ui.List)findByName("newProjectSubmittedToList", root);
     }
@@ -720,6 +720,27 @@ public abstract class StateMachineBase extends UIBuilder {
             cmp = (com.codename1.ui.TextField)findByName("newBoreDataLTextField", aboutToShowThisContainer);
         }
         return cmp;
+    }
+
+    public static final int COMMAND_MainNewProject = 1;
+
+    protected boolean onMainNewProject() {
+        return false;
+    }
+
+    protected void processCommand(ActionEvent ev, Command cmd) {
+        switch(cmd.getId()) {
+            case COMMAND_MainNewProject:
+                if(onMainNewProject()) {
+                    ev.consume();
+                    return;
+                }
+                break;
+
+        }
+        if(ev.getComponent() != null) {
+            handleComponentAction(ev.getComponent(), ev);
+        }
     }
 
     protected void exitForm(Form f) {
@@ -1404,8 +1425,8 @@ public abstract class StateMachineBase extends UIBuilder {
                 onNewProject_NewProjectInPresenceOfListAction(c, event);
                 return;
             }
-            if("newPreojectInPresenceOfAddButton".equals(c.getName())) {
-                onNewProject_NewPreojectInPresenceOfAddButtonAction(c, event);
+            if("newProjectInPresenceOfAddButton".equals(c.getName())) {
+                onNewProject_NewProjectInPresenceOfAddButtonAction(c, event);
                 return;
             }
             if("newProjectTypeOfStructureComboBox".equals(c.getName())) {
@@ -1527,7 +1548,7 @@ public abstract class StateMachineBase extends UIBuilder {
       protected void onNewProject_NewProjectInPresenceOfListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_NewPreojectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onNewProject_NewProjectTypeOfStructureComboBoxAction(Component c, ActionEvent event) {

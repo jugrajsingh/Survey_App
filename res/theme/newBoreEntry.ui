@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="newBoreEntry" cloudDestinationProperty="newBoreEntry" layout="BorderLayout" borderLayoutAbsoluteCenter="false" title="Bore Data Entry" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
+    <layoutConstraint value="South" />
+    <component type="Button" name="newBoreEntrySaveButton" cloudDestinationProperty="Button" text="Save" >
+    </component>
+    <component type="Button" name="newBoreEntryCancelButton" cloudDestinationProperty="Button1" text="Cancel" >
+    </component>
+  </component>
+  <component type="Container" name="Container1" cloudDestinationProperty="Container1" scrollableY="true" layout="GridLayout" gridLayoutRows="3" gridLayoutColumns="1" >
+    <layoutConstraint value="Center" />
+    <component type="Container" name="Container2" cloudDestinationProperty="Container2" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+      <component type="Container" name="Container4" cloudDestinationProperty="Container4" layout="BoxLayout" boxLayoutAxis="Y" >
+        <layoutConstraint value="Center" />
+        <component type="Label" name="Label" cloudDestinationProperty="Label" text="Latitude" >
+        </component>
+        <component type="TextField" name="newBoreEntryLatitudeTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+        </component>
+        <component type="Label" name="Label1" cloudDestinationProperty="Label1" text="Longitude" >
+        </component>
+        <component type="TextField" name="newBoreEntryLongitudeTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField1" text="" >
+        </component>
+      </component>
+      <component type="Button" name="newBoreEntryGetLocationButton" cloudDestinationProperty="Button2" text="Get Location" >
+        <layoutConstraint value="South" />
+      </component>
+    </component>
+    <component type="Container" name="Container3" cloudDestinationProperty="Container3" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+      <component type="Label" name="Label2" cloudDestinationProperty="Label2" text="Survey Data" >
+        <layoutConstraint value="North" />
+      </component>
+      <component type="List" name="newBoreDataList" cloudDestinationProperty="List" >
+        <layoutConstraint value="Center" />
+        <stringItem value="Item 1" />
+        <stringItem value="Item 2" />
+        <stringItem value="Item 3" />
+      </component>
+      <component type="Button" name="newBoreDataEntryAddButton" cloudDestinationProperty="Button3" text="Add" >
+        <layoutConstraint value="South" />
+      </component>
+    </component>
+  </component>
+</component>

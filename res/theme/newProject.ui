@@ -8,7 +8,7 @@
     <component type="Button" name="newProjectCancelButton" cloudDestinationProperty="Button1" text="Cancel" >
     </component>
   </component>
-  <component type="Container" name="Container1" cloudDestinationProperty="Container1" layout="GridLayout" gridLayoutRows="3" gridLayoutColumns="2" >
+  <component type="Container" name="Container1" cloudDestinationProperty="Container1" scrollableY="true" layout="GridLayout" gridLayoutRows="3" gridLayoutColumns="2" >
     <layoutConstraint value="Center" />
     <component type="Container" name="Container2" cloudDestinationProperty="Container2" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
       <component type="Label" name="Label" cloudDestinationProperty="Label" text="Dates of testing:" >
@@ -16,9 +16,6 @@
       </component>
       <component type="List" name="newProjectDateOfTestingList" cloudDestinationProperty="List" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
       <component type="Button" name="newProjectDateOfTestingAddButton" cloudDestinationProperty="Button2" text="Add" >
         <layoutConstraint value="South" />
@@ -30,9 +27,6 @@
       </component>
       <component type="List" name="newProjectSubmittedToList" cloudDestinationProperty="List1" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
       <component type="Button" name="newProjectSubmittedToAddButton" cloudDestinationProperty="Button3" text="Add" >
         <layoutConstraint value="South" />
@@ -44,9 +38,6 @@
       </component>
       <component type="List" name="newProjectPreparedByList" cloudDestinationProperty="List2" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
       <component type="Button" name="newProjectPreparedByAddButton" cloudDestinationProperty="Button4" text="Add" >
         <layoutConstraint value="South" />
@@ -58,11 +49,8 @@
       </component>
       <component type="List" name="newProjectInPresenceOfList" cloudDestinationProperty="List3" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
-      <component type="Button" name="newPreojectInPresenceOfAddButton" cloudDestinationProperty="Button5" text="Add" >
+      <component type="Button" name="newProjectInPresenceOfAddButton" cloudDestinationProperty="Button5" text="Add" >
         <layoutConstraint value="South" />
       </component>
     </component>
@@ -81,9 +69,6 @@
       </component>
       <component type="List" name="newProjectBoresList" cloudDestinationProperty="List4" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
       <component type="Button" name="newProjectboresAddButton" cloudDestinationProperty="Button6" text="Add" >
         <layoutConstraint value="South" />

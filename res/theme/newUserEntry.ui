@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Dialog" name="newUserEntry" cloudDestinationProperty="newUserEntry" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="TextField" name="newUserEntryNameTextField" cloudBoundProperty="text" cloudDestinationProperty="newUserEntryNameTextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="Name" >
+      <layoutConstraint value="West" />
+    </component>
+  </component>
+  <component type="Container" name="Container1" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="TextField" name="newUserEntryDesgTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="designation" >
+      <layoutConstraint value="West" />
+    </component>
+  </component>
+  <component type="Container" name="Container2" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="TextField" name="newUserEntryOrgTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="Organisation" >
+      <layoutConstraint value="West" />
+    </component>
+  </component>
+  <component type="Container" name="Container3" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="TextField" name="newUserEntryContactTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="Contact" >
+      <layoutConstraint value="West" />
+    </component>
+  </component>
+  <component type="Container" name="Container4" cloudDestinationProperty="Container4" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
+    <component type="Button" name="newUserEntrySaveButton" cloudDestinationProperty="newUserEntrySaveButton" text="Save" >
+    </component>
+    <component type="Button" name="newUserEntryCancelButton" cloudDestinationProperty="newUserEntryCancelButton" text="Cancel" >
+    </component>
+  </component>
+</component>

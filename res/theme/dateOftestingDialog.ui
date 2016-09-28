@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Dialog" name="dateOftestingDialog" cloudDestinationProperty="dateOftestingDialog" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="DateSpinner" name="dateOfTestingDateSpinner" cloudDestinationProperty="DateSpinner" >
+  </component>
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
+    <component type="Button" name="dateOfTestingSaveButton" cloudDestinationProperty="dateOfTestingSaveButton" text="Save" >
+    </component>
+    <component type="Button" name="dateOfTestingCancelButton" cloudDestinationProperty="dateOfTestingCancelButton" text="Cancel" >
+    </component>
+  </component>
+</component>

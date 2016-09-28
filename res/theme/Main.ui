@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<component type="Form" name="Main" cloudDestinationProperty="Main" title="Hi World" >
-  <component type="Button" name="Button" cloudDestinationProperty="Button" text="New Project" >
+<component type="Form" name="Main" cloudDestinationProperty="Main" title="Civil Survey" >
+  <component type="Button" name="Button" cloudDestinationProperty="Button" commandName="New Project" commandId="1" commandAction="newProject" commandBack="false" text="New Project" >
   </component>
 </component>

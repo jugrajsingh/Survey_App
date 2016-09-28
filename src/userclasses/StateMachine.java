@@ -30,4 +30,47 @@ public class StateMachine extends StateMachineBase {
     protected void initVars(Resources res) {
     }
 
+    @Override
+    protected void onNewProject_NewProjectDateOfTestingAddButtonAction(Component c, ActionEvent event) {
+        Dialog d = (Dialog) createContainer(fetchResourceFile(), "dateOftestingDialog");
+        Button saveButton = (Button) findByName("dateOfTestingSaveButton", d);
+        saveButton.addActionListener(evt -> {
+            Dialog.show("Greetings", "DateOfTesting", "OK", null);
+            d.dispose();
+        });
+        d.show();
+    }
+
+    @Override
+    protected void onNewProject_NewProjectSubmittedToAddButtonAction(Component c, ActionEvent event) {
+        Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        saveButton.addActionListener(evt -> {
+            Dialog.show("Greetings", "SubmittedToAddButton", "OK", null);
+            d.dispose();
+        });
+        d.show();
+    }
+
+    @Override
+    protected void onNewProject_NewProjectPreparedByAddButtonAction(Component c, ActionEvent event) {
+        Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        saveButton.addActionListener(evt -> {
+            Dialog.show("Greetings", "PreparedByAddButton", "OK", null);
+            d.dispose();
+        });
+        d.show();
+    }
+
+    @Override
+    protected void onNewProject_NewProjectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
+        Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        saveButton.addActionListener(evt -> {
+            Dialog.show("Greetings", "InPresenceOf", "OK", null);
+            d.dispose();
+        });
+        d.show();
+    }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Dialog" name="newBoreData" cloudDestinationProperty="newBoreData" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="D" >
+      <layoutConstraint value="West" />
+    </component>
+    <component type="TextField" name="newBoreDataDTextField" cloudBoundProperty="text" cloudDestinationProperty="newBoreDataDTextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+  </component>
+  <component type="Container" name="Container1" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="N" >
+      <layoutConstraint value="West" />
+    </component>
+    <component type="TextField" name="newBoreDataNTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+  </component>
+  <component type="Container" name="Container2" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="L" >
+      <layoutConstraint value="West" />
+    </component>
+    <component type="TextField" name="newBoreDataLTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+  </component>
+  <component type="Container" name="Container3" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="Type of Soil" >
+      <layoutConstraint value="West" />
+    </component>
+    <component type="TextField" name="newBoreDataTypeOfSoilTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
+      <layoutConstraint value="Center" />
+    </component>
+  </component>
+  <component type="Container" name="Container4" cloudDestinationProperty="Container4" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
+    <component type="Button" name="newBoreDataSaveButton" cloudDestinationProperty="newBoreDataSaveButton" text="Save" >
+    </component>
+    <component type="Button" name="newBoreDataCancelButton" cloudDestinationProperty="newBoreDataCancelButton" text="Cancel" >
+    </component>
+  </component>
+</component>
