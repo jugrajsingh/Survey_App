@@ -116,14 +116,26 @@ public abstract class StateMachineBase extends UIBuilder {
         this(res, null, loadTheme);
     }
 
-    public com.codename1.ui.Button findButton1(Component root) {
-        return (com.codename1.ui.Button)findByName("Button1", root);
+    public com.codename1.ui.Button findNewProjectSubmittedToAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", root);
     }
 
-    public com.codename1.ui.Button findButton1() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button1", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findNewProjectSubmittedToAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button1", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.List findNewProjectBoresList(Component root) {
+        return (com.codename1.ui.List)findByName("newProjectBoresList", root);
+    }
+
+    public com.codename1.ui.List findNewProjectBoresList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectBoresList", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.List)findByName("newProjectBoresList", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -160,6 +172,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Container cmp = (com.codename1.ui.Container)findByName("Container4", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Container)findByName("Container4", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -236,26 +260,14 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.List findList1(Component root) {
-        return (com.codename1.ui.List)findByName("List1", root);
+    public com.codename1.ui.Button findNewprojectSaveButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newprojectSaveButton", root);
     }
 
-    public com.codename1.ui.List findList1() {
-        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("List1", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findNewprojectSaveButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.List)findByName("List1", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.List findList2(Component root) {
-        return (com.codename1.ui.List)findByName("List2", root);
-    }
-
-    public com.codename1.ui.List findList2() {
-        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("List2", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.List)findByName("List2", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -272,30 +284,6 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.Button findButton(Component root) {
-        return (com.codename1.ui.Button)findByName("Button", root);
-    }
-
-    public com.codename1.ui.Button findButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.List findList3(Component root) {
-        return (com.codename1.ui.List)findByName("List3", root);
-    }
-
-    public com.codename1.ui.List findList3() {
-        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("List3", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.List)findByName("List3", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
     public com.codename1.ui.Label findLabel4(Component root) {
         return (com.codename1.ui.Label)findByName("Label4", root);
     }
@@ -308,38 +296,98 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.List findList4(Component root) {
-        return (com.codename1.ui.List)findByName("List4", root);
+    public com.codename1.ui.Button findButton(Component root) {
+        return (com.codename1.ui.Button)findByName("Button", root);
     }
 
-    public com.codename1.ui.List findList4() {
-        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("List4", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.List)findByName("List4", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button)findByName("Button", aboutToShowThisContainer);
         }
         return cmp;
     }
 
-    public com.codename1.ui.List findList(Component root) {
-        return (com.codename1.ui.List)findByName("List", root);
+    public com.codename1.ui.List findNewProjectDateOfTestingList(Component root) {
+        return (com.codename1.ui.List)findByName("newProjectDateOfTestingList", root);
     }
 
-    public com.codename1.ui.List findList() {
-        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("List", Display.getInstance().getCurrent());
+    public com.codename1.ui.List findNewProjectDateOfTestingList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectDateOfTestingList", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.List)findByName("List", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.List)findByName("newProjectDateOfTestingList", aboutToShowThisContainer);
         }
         return cmp;
     }
 
-    public com.codename1.ui.ComboBox findComboBox(Component root) {
-        return (com.codename1.ui.ComboBox)findByName("ComboBox", root);
+    public com.codename1.ui.List findNewProjectPreparedByList(Component root) {
+        return (com.codename1.ui.List)findByName("newProjectPreparedByList", root);
     }
 
-    public com.codename1.ui.ComboBox findComboBox() {
-        com.codename1.ui.ComboBox cmp = (com.codename1.ui.ComboBox)findByName("ComboBox", Display.getInstance().getCurrent());
+    public com.codename1.ui.List findNewProjectPreparedByList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectPreparedByList", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.ComboBox)findByName("ComboBox", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.List)findByName("newProjectPreparedByList", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectPreparedByAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectPreparedByAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.List findNewProjectSubmittedToList(Component root) {
+        return (com.codename1.ui.List)findByName("newProjectSubmittedToList", root);
+    }
+
+    public com.codename1.ui.List findNewProjectSubmittedToList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectSubmittedToList", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.List)findByName("newProjectSubmittedToList", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewPreojectInPresenceOfAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewPreojectInPresenceOfAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newPreojectInPresenceOfAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectboresAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectboresAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectboresAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectboresAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newProjectboresAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.ComboBox findNewProjectTypeOfStructureComboBox(Component root) {
+        return (com.codename1.ui.ComboBox)findByName("newProjectTypeOfStructureComboBox", root);
+    }
+
+    public com.codename1.ui.ComboBox findNewProjectTypeOfStructureComboBox() {
+        com.codename1.ui.ComboBox cmp = (com.codename1.ui.ComboBox)findByName("newProjectTypeOfStructureComboBox", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.ComboBox)findByName("newProjectTypeOfStructureComboBox", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -380,62 +428,26 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.Button findButton5(Component root) {
-        return (com.codename1.ui.Button)findByName("Button5", root);
+    public com.codename1.ui.Button findNewProjectCancelButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectCancelButton", root);
     }
 
-    public com.codename1.ui.Button findButton5() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button5", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findNewProjectCancelButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectCancelButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button5", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button)findByName("newProjectCancelButton", aboutToShowThisContainer);
         }
         return cmp;
     }
 
-    public com.codename1.ui.Button findButton4(Component root) {
-        return (com.codename1.ui.Button)findByName("Button4", root);
+    public com.codename1.ui.List findNewProjectInPresenceOfList(Component root) {
+        return (com.codename1.ui.List)findByName("newProjectInPresenceOfList", root);
     }
 
-    public com.codename1.ui.Button findButton4() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button4", Display.getInstance().getCurrent());
+    public com.codename1.ui.List findNewProjectInPresenceOfList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectInPresenceOfList", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button4", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.Button findButton3(Component root) {
-        return (com.codename1.ui.Button)findByName("Button3", root);
-    }
-
-    public com.codename1.ui.Button findButton3() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button3", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button3", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.Button findButton2(Component root) {
-        return (com.codename1.ui.Button)findByName("Button2", root);
-    }
-
-    public com.codename1.ui.Button findButton2() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button2", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button2", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.Button findButton6(Component root) {
-        return (com.codename1.ui.Button)findByName("Button6", root);
-    }
-
-    public com.codename1.ui.Button findButton6() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("Button6", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("Button6", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.List)findByName("newProjectInPresenceOfList", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -638,48 +650,48 @@ public abstract class StateMachineBase extends UIBuilder {
 
     protected boolean setListModel(List cmp) {
         String listName = cmp.getName();
-        if("List1".equals(listName)) {
-            return initListModelList1(cmp);
+        if("newProjectBoresList".equals(listName)) {
+            return initListModelNewProjectBoresList(cmp);
         }
-        if("List2".equals(listName)) {
-            return initListModelList2(cmp);
+        if("newProjectDateOfTestingList".equals(listName)) {
+            return initListModelNewProjectDateOfTestingList(cmp);
         }
-        if("List3".equals(listName)) {
-            return initListModelList3(cmp);
+        if("newProjectPreparedByList".equals(listName)) {
+            return initListModelNewProjectPreparedByList(cmp);
         }
-        if("List4".equals(listName)) {
-            return initListModelList4(cmp);
+        if("newProjectSubmittedToList".equals(listName)) {
+            return initListModelNewProjectSubmittedToList(cmp);
         }
-        if("List".equals(listName)) {
-            return initListModelList(cmp);
+        if("newProjectTypeOfStructureComboBox".equals(listName)) {
+            return initListModelNewProjectTypeOfStructureComboBox(cmp);
         }
-        if("ComboBox".equals(listName)) {
-            return initListModelComboBox(cmp);
+        if("newProjectInPresenceOfList".equals(listName)) {
+            return initListModelNewProjectInPresenceOfList(cmp);
         }
         return super.setListModel(cmp);
     }
 
-    protected boolean initListModelList1(List cmp) {
+    protected boolean initListModelNewProjectBoresList(List cmp) {
         return false;
     }
 
-    protected boolean initListModelList2(List cmp) {
+    protected boolean initListModelNewProjectDateOfTestingList(List cmp) {
         return false;
     }
 
-    protected boolean initListModelList3(List cmp) {
+    protected boolean initListModelNewProjectPreparedByList(List cmp) {
         return false;
     }
 
-    protected boolean initListModelList4(List cmp) {
+    protected boolean initListModelNewProjectSubmittedToList(List cmp) {
         return false;
     }
 
-    protected boolean initListModelList(List cmp) {
+    protected boolean initListModelNewProjectTypeOfStructureComboBox(List cmp) {
         return false;
     }
 
-    protected boolean initListModelComboBox(List cmp) {
+    protected boolean initListModelNewProjectInPresenceOfList(List cmp) {
         return false;
     }
 
@@ -693,56 +705,56 @@ public abstract class StateMachineBase extends UIBuilder {
         }
         if(rootContainerName == null) return;
         if(rootContainerName.equals("newProject")) {
-            if("Button".equals(c.getName())) {
-                onNewProject_ButtonAction(c, event);
+            if("newprojectSaveButton".equals(c.getName())) {
+                onNewProject_NewprojectSaveButtonAction(c, event);
                 return;
             }
-            if("Button1".equals(c.getName())) {
-                onNewProject_Button1Action(c, event);
+            if("newProjectCancelButton".equals(c.getName())) {
+                onNewProject_NewProjectCancelButtonAction(c, event);
                 return;
             }
-            if("List".equals(c.getName())) {
-                onNewProject_ListAction(c, event);
+            if("newProjectDateOfTestingList".equals(c.getName())) {
+                onNewProject_NewProjectDateOfTestingListAction(c, event);
                 return;
             }
-            if("Button2".equals(c.getName())) {
-                onNewProject_Button2Action(c, event);
+            if("newProjectDateOfTestingAddButton".equals(c.getName())) {
+                onNewProject_NewProjectDateOfTestingAddButtonAction(c, event);
                 return;
             }
-            if("List1".equals(c.getName())) {
-                onNewProject_List1Action(c, event);
+            if("newProjectSubmittedToList".equals(c.getName())) {
+                onNewProject_NewProjectSubmittedToListAction(c, event);
                 return;
             }
-            if("Button3".equals(c.getName())) {
-                onNewProject_Button3Action(c, event);
+            if("newProjectSubmittedToAddButton".equals(c.getName())) {
+                onNewProject_NewProjectSubmittedToAddButtonAction(c, event);
                 return;
             }
-            if("List2".equals(c.getName())) {
-                onNewProject_List2Action(c, event);
+            if("newProjectPreparedByList".equals(c.getName())) {
+                onNewProject_NewProjectPreparedByListAction(c, event);
                 return;
             }
-            if("Button4".equals(c.getName())) {
-                onNewProject_Button4Action(c, event);
+            if("newProjectPreparedByAddButton".equals(c.getName())) {
+                onNewProject_NewProjectPreparedByAddButtonAction(c, event);
                 return;
             }
-            if("List3".equals(c.getName())) {
-                onNewProject_List3Action(c, event);
+            if("newProjectInPresenceOfList".equals(c.getName())) {
+                onNewProject_NewProjectInPresenceOfListAction(c, event);
                 return;
             }
-            if("Button5".equals(c.getName())) {
-                onNewProject_Button5Action(c, event);
+            if("newPreojectInPresenceOfAddButton".equals(c.getName())) {
+                onNewProject_NewPreojectInPresenceOfAddButtonAction(c, event);
                 return;
             }
-            if("ComboBox".equals(c.getName())) {
-                onNewProject_ComboBoxAction(c, event);
+            if("newProjectTypeOfStructureComboBox".equals(c.getName())) {
+                onNewProject_NewProjectTypeOfStructureComboBoxAction(c, event);
                 return;
             }
-            if("List4".equals(c.getName())) {
-                onNewProject_List4Action(c, event);
+            if("newProjectBoresList".equals(c.getName())) {
+                onNewProject_NewProjectBoresListAction(c, event);
                 return;
             }
-            if("Button6".equals(c.getName())) {
-                onNewProject_Button6Action(c, event);
+            if("newProjectboresAddButton".equals(c.getName())) {
+                onNewProject_NewProjectboresAddButtonAction(c, event);
                 return;
             }
         }
@@ -754,43 +766,43 @@ public abstract class StateMachineBase extends UIBuilder {
         }
     }
 
-      protected void onNewProject_ButtonAction(Component c, ActionEvent event) {
+      protected void onNewProject_NewprojectSaveButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button1Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectCancelButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_ListAction(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectDateOfTestingListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button2Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectDateOfTestingAddButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_List1Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectSubmittedToListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button3Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectSubmittedToAddButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_List2Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectPreparedByListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button4Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectPreparedByAddButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_List3Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectInPresenceOfListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button5Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewPreojectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_ComboBoxAction(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectTypeOfStructureComboBoxAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_List4Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectBoresListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_Button6Action(Component c, ActionEvent event) {
+      protected void onNewProject_NewProjectboresAddButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onMain_ButtonAction(Component c, ActionEvent event) {
