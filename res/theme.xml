@@ -53,6 +53,8 @@
     <image name="Menu.borderTop_2.png" type="multi"  />
     <image name="Menu.borderTopL_2.png" type="multi"  />
     <image name="Menu.borderTopR_2.png" type="multi"  />
+    <ui name="newBoreData" />
+    <ui name="newBoreEntry" />
     <ui name="newProject" />
     <image name="OKGR.borderBottom_1.png" type="multi"  />
     <image name="OKGR.borderBottomL_1.png" type="multi"  />

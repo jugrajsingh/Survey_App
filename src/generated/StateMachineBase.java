@@ -37,7 +37,9 @@ public abstract class StateMachineBase extends UIBuilder {
         UIBuilder.registerCustomComponent("Form", com.codename1.ui.Form.class);
         UIBuilder.registerCustomComponent("Button", com.codename1.ui.Button.class);
         UIBuilder.registerCustomComponent("ComboBox", com.codename1.ui.ComboBox.class);
+        UIBuilder.registerCustomComponent("Dialog", com.codename1.ui.Dialog.class);
         UIBuilder.registerCustomComponent("Label", com.codename1.ui.Label.class);
+        UIBuilder.registerCustomComponent("TextField", com.codename1.ui.TextField.class);
         UIBuilder.registerCustomComponent("List", com.codename1.ui.List.class);
         if(loadTheme) {
             if(res == null) {
@@ -77,7 +79,9 @@ public abstract class StateMachineBase extends UIBuilder {
         UIBuilder.registerCustomComponent("Form", com.codename1.ui.Form.class);
         UIBuilder.registerCustomComponent("Button", com.codename1.ui.Button.class);
         UIBuilder.registerCustomComponent("ComboBox", com.codename1.ui.ComboBox.class);
+        UIBuilder.registerCustomComponent("Dialog", com.codename1.ui.Dialog.class);
         UIBuilder.registerCustomComponent("Label", com.codename1.ui.Label.class);
+        UIBuilder.registerCustomComponent("TextField", com.codename1.ui.TextField.class);
         UIBuilder.registerCustomComponent("List", com.codename1.ui.List.class);
         if(loadTheme) {
             if(res == null) {
@@ -116,6 +120,42 @@ public abstract class StateMachineBase extends UIBuilder {
         this(res, null, loadTheme);
     }
 
+    public com.codename1.ui.TextField findNewBoreEntryLatitudeTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreEntryLatitudeTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreEntryLatitudeTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreEntryLatitudeTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreEntryLatitudeTextField", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreDataEntryAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreDataEntryAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreDataEntryAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreDataEntryAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreDataEntryAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreDataCancelButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreDataCancelButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreDataCancelButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreDataCancelButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreDataCancelButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.Button findNewProjectSubmittedToAddButton(Component root) {
         return (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", root);
     }
@@ -124,6 +164,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button)findByName("newProjectSubmittedToAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.TextField findNewBoreEntryLongitudeTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreEntryLongitudeTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreEntryLongitudeTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreEntryLongitudeTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreEntryLongitudeTextField", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -176,18 +228,6 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton(Component root) {
-        return (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", root);
-    }
-
-    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
     public com.codename1.ui.Container findContainer1(Component root) {
         return (com.codename1.ui.Container)findByName("Container1", root);
     }
@@ -196,6 +236,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Container cmp = (com.codename1.ui.Container)findByName("Container1", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Container)findByName("Container1", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectDateOfTestingAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newProjectDateOfTestingAddButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -248,6 +300,42 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.TextField findNewBoreDataDTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreDataDTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreDataDTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreDataDTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreDataDTextField", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreEntrySaveButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreEntrySaveButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreEntrySaveButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreEntrySaveButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreEntrySaveButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreEntryCancelButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreEntryCancelButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreEntryCancelButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreEntryCancelButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreEntryCancelButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.Container findContainer(Component root) {
         return (com.codename1.ui.Container)findByName("Container", root);
     }
@@ -268,6 +356,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreDataSaveButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreDataSaveButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreDataSaveButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreDataSaveButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreDataSaveButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -344,6 +444,30 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.TextField findNewBoreDataTypeOfSoilTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreDataTypeOfSoilTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreDataTypeOfSoilTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreDataTypeOfSoilTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreDataTypeOfSoilTextField", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.List findNewBoreDataList(Component root) {
+        return (com.codename1.ui.List)findByName("newBoreDataList", root);
+    }
+
+    public com.codename1.ui.List findNewBoreDataList() {
+        com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newBoreDataList", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.List)findByName("newBoreDataList", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.List findNewProjectSubmittedToList(Component root) {
         return (com.codename1.ui.List)findByName("newProjectSubmittedToList", root);
     }
@@ -352,6 +476,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.List cmp = (com.codename1.ui.List)findByName("newProjectSubmittedToList", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.List)findByName("newProjectSubmittedToList", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewBoreEntryGetLocationButton(Component root) {
+        return (com.codename1.ui.Button)findByName("newBoreEntryGetLocationButton", root);
+    }
+
+    public com.codename1.ui.Button findNewBoreEntryGetLocationButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreEntryGetLocationButton", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button)findByName("newBoreEntryGetLocationButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -428,6 +564,18 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.TextField findNewBoreDataLTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreDataLTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreDataLTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreDataLTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreDataLTextField", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.Button findNewProjectCancelButton(Component root) {
         return (com.codename1.ui.Button)findByName("newProjectCancelButton", root);
     }
@@ -452,9 +600,33 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.TextField findNewBoreDataNTextField(Component root) {
+        return (com.codename1.ui.TextField)findByName("newBoreDataNTextField", root);
+    }
+
+    public com.codename1.ui.TextField findNewBoreDataNTextField() {
+        com.codename1.ui.TextField cmp = (com.codename1.ui.TextField)findByName("newBoreDataNTextField", Display.getInstance().getCurrent());
+        if(cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.TextField)findByName("newBoreDataNTextField", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     protected void exitForm(Form f) {
+        if("newBoreEntry".equals(f.getName())) {
+            exitNewBoreEntry(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(f.getName())) {
             exitNewProject(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(f.getName())) {
+            exitNewBoreData(f);
             aboutToShowThisContainer = null;
             return;
         }
@@ -469,7 +641,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void exitNewBoreEntry(Form f) {
+    }
+
+
     protected void exitNewProject(Form f) {
+    }
+
+
+    protected void exitNewBoreData(Form f) {
     }
 
 
@@ -478,8 +658,20 @@ public abstract class StateMachineBase extends UIBuilder {
 
     protected void beforeShow(Form f) {
     aboutToShowThisContainer = f;
+        if("newBoreEntry".equals(f.getName())) {
+            beforeNewBoreEntry(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(f.getName())) {
             beforeNewProject(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(f.getName())) {
+            beforeNewBoreData(f);
             aboutToShowThisContainer = null;
             return;
         }
@@ -494,7 +686,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void beforeNewBoreEntry(Form f) {
+    }
+
+
     protected void beforeNewProject(Form f) {
+    }
+
+
+    protected void beforeNewBoreData(Form f) {
     }
 
 
@@ -503,8 +703,20 @@ public abstract class StateMachineBase extends UIBuilder {
 
     protected void beforeShowContainer(Container c) {
         aboutToShowThisContainer = c;
+        if("newBoreEntry".equals(c.getName())) {
+            beforeContainerNewBoreEntry(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(c.getName())) {
             beforeContainerNewProject(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(c.getName())) {
+            beforeContainerNewBoreData(c);
             aboutToShowThisContainer = null;
             return;
         }
@@ -519,7 +731,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void beforeContainerNewBoreEntry(Container c) {
+    }
+
+
     protected void beforeContainerNewProject(Container c) {
+    }
+
+
+    protected void beforeContainerNewBoreData(Container c) {
     }
 
 
@@ -527,8 +747,20 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
     protected void postShow(Form f) {
+        if("newBoreEntry".equals(f.getName())) {
+            postNewBoreEntry(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(f.getName())) {
             postNewProject(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(f.getName())) {
+            postNewBoreData(f);
             aboutToShowThisContainer = null;
             return;
         }
@@ -543,7 +775,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void postNewBoreEntry(Form f) {
+    }
+
+
     protected void postNewProject(Form f) {
+    }
+
+
+    protected void postNewBoreData(Form f) {
     }
 
 
@@ -551,8 +791,20 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
     protected void postShowContainer(Container c) {
+        if("newBoreEntry".equals(c.getName())) {
+            postContainerNewBoreEntry(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(c.getName())) {
             postContainerNewProject(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(c.getName())) {
+            postContainerNewBoreData(c);
             aboutToShowThisContainer = null;
             return;
         }
@@ -567,7 +819,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void postContainerNewBoreEntry(Container c) {
+    }
+
+
     protected void postContainerNewProject(Container c) {
+    }
+
+
+    protected void postContainerNewBoreData(Container c) {
     }
 
 
@@ -575,8 +835,20 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
     protected void onCreateRoot(String rootName) {
+        if("newBoreEntry".equals(rootName)) {
+            onCreateNewBoreEntry();
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(rootName)) {
             onCreateNewProject();
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(rootName)) {
+            onCreateNewBoreData();
             aboutToShowThisContainer = null;
             return;
         }
@@ -591,7 +863,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void onCreateNewBoreEntry() {
+    }
+
+
     protected void onCreateNewProject() {
+    }
+
+
+    protected void onCreateNewBoreData() {
     }
 
 
@@ -600,8 +880,20 @@ public abstract class StateMachineBase extends UIBuilder {
 
     protected Hashtable getFormState(Form f) {
         Hashtable h = super.getFormState(f);
+        if("newBoreEntry".equals(f.getName())) {
+            getStateNewBoreEntry(f, h);
+            aboutToShowThisContainer = null;
+            return h;
+        }
+
         if("newProject".equals(f.getName())) {
             getStateNewProject(f, h);
+            aboutToShowThisContainer = null;
+            return h;
+        }
+
+        if("newBoreData".equals(f.getName())) {
+            getStateNewBoreData(f, h);
             aboutToShowThisContainer = null;
             return h;
         }
@@ -616,7 +908,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void getStateNewBoreEntry(Form f, Hashtable h) {
+    }
+
+
     protected void getStateNewProject(Form f, Hashtable h) {
+    }
+
+
+    protected void getStateNewBoreData(Form f, Hashtable h) {
     }
 
 
@@ -625,8 +925,20 @@ public abstract class StateMachineBase extends UIBuilder {
 
     protected void setFormState(Form f, Hashtable state) {
         super.setFormState(f, state);
+        if("newBoreEntry".equals(f.getName())) {
+            setStateNewBoreEntry(f, state);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("newProject".equals(f.getName())) {
             setStateNewProject(f, state);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
+        if("newBoreData".equals(f.getName())) {
+            setStateNewBoreData(f, state);
             aboutToShowThisContainer = null;
             return;
         }
@@ -641,7 +953,15 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
 
+    protected void setStateNewBoreEntry(Form f, Hashtable state) {
+    }
+
+
     protected void setStateNewProject(Form f, Hashtable state) {
+    }
+
+
+    protected void setStateNewBoreData(Form f, Hashtable state) {
     }
 
 
@@ -658,6 +978,9 @@ public abstract class StateMachineBase extends UIBuilder {
         }
         if("newProjectPreparedByList".equals(listName)) {
             return initListModelNewProjectPreparedByList(cmp);
+        }
+        if("newBoreDataList".equals(listName)) {
+            return initListModelNewBoreDataList(cmp);
         }
         if("newProjectSubmittedToList".equals(listName)) {
             return initListModelNewProjectSubmittedToList(cmp);
@@ -683,6 +1006,10 @@ public abstract class StateMachineBase extends UIBuilder {
         return false;
     }
 
+    protected boolean initListModelNewBoreDataList(List cmp) {
+        return false;
+    }
+
     protected boolean initListModelNewProjectSubmittedToList(List cmp) {
         return false;
     }
@@ -704,6 +1031,36 @@ public abstract class StateMachineBase extends UIBuilder {
             c = c.getParent().getLeadParent();
         }
         if(rootContainerName == null) return;
+        if(rootContainerName.equals("newBoreEntry")) {
+            if("newBoreEntrySaveButton".equals(c.getName())) {
+                onNewBoreEntry_NewBoreEntrySaveButtonAction(c, event);
+                return;
+            }
+            if("newBoreEntryCancelButton".equals(c.getName())) {
+                onNewBoreEntry_NewBoreEntryCancelButtonAction(c, event);
+                return;
+            }
+            if("newBoreEntryLatitudeTextField".equals(c.getName())) {
+                onNewBoreEntry_NewBoreEntryLatitudeTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreEntryLongitudeTextField".equals(c.getName())) {
+                onNewBoreEntry_NewBoreEntryLongitudeTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreEntryGetLocationButton".equals(c.getName())) {
+                onNewBoreEntry_NewBoreEntryGetLocationButtonAction(c, event);
+                return;
+            }
+            if("newBoreDataList".equals(c.getName())) {
+                onNewBoreEntry_NewBoreDataListAction(c, event);
+                return;
+            }
+            if("newBoreDataEntryAddButton".equals(c.getName())) {
+                onNewBoreEntry_NewBoreDataEntryAddButtonAction(c, event);
+                return;
+            }
+        }
         if(rootContainerName.equals("newProject")) {
             if("newprojectSaveButton".equals(c.getName())) {
                 onNewProject_NewprojectSaveButtonAction(c, event);
@@ -758,6 +1115,32 @@ public abstract class StateMachineBase extends UIBuilder {
                 return;
             }
         }
+        if(rootContainerName.equals("newBoreData")) {
+            if("newBoreDataDTextField".equals(c.getName())) {
+                onNewBoreData_NewBoreDataDTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreDataNTextField".equals(c.getName())) {
+                onNewBoreData_NewBoreDataNTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreDataLTextField".equals(c.getName())) {
+                onNewBoreData_NewBoreDataLTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreDataTypeOfSoilTextField".equals(c.getName())) {
+                onNewBoreData_NewBoreDataTypeOfSoilTextFieldAction(c, event);
+                return;
+            }
+            if("newBoreDataSaveButton".equals(c.getName())) {
+                onNewBoreData_NewBoreDataSaveButtonAction(c, event);
+                return;
+            }
+            if("newBoreDataCancelButton".equals(c.getName())) {
+                onNewBoreData_NewBoreDataCancelButtonAction(c, event);
+                return;
+            }
+        }
         if(rootContainerName.equals("Main")) {
             if("Button".equals(c.getName())) {
                 onMain_ButtonAction(c, event);
@@ -765,6 +1148,27 @@ public abstract class StateMachineBase extends UIBuilder {
             }
         }
     }
+
+      protected void onNewBoreEntry_NewBoreEntrySaveButtonAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreEntryCancelButtonAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreEntryLatitudeTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreEntryLongitudeTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreEntryGetLocationButtonAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreDataListAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreEntry_NewBoreDataEntryAddButtonAction(Component c, ActionEvent event) {
+      }
 
       protected void onNewProject_NewprojectSaveButtonAction(Component c, ActionEvent event) {
       }
@@ -803,6 +1207,24 @@ public abstract class StateMachineBase extends UIBuilder {
       }
 
       protected void onNewProject_NewProjectboresAddButtonAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataDTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataNTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataLTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataTypeOfSoilTextFieldAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataSaveButtonAction(Component c, ActionEvent event) {
+      }
+
+      protected void onNewBoreData_NewBoreDataCancelButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onMain_ButtonAction(Component c, ActionEvent event) {
