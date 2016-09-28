@@ -38,6 +38,10 @@ public class StateMachine extends StateMachineBase {
             Dialog.show("Greetings", "DateOfTesting", "OK", null);
             d.dispose();
         });
+        Button cancelButton = (Button) findByName("dateOfTestingCancelButton",d);
+        cancelButton.addActionListener(evt -> {
+            d.dispose();
+        });
         d.show();
     }
 
@@ -47,6 +51,10 @@ public class StateMachine extends StateMachineBase {
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
         saveButton.addActionListener(evt -> {
             Dialog.show("Greetings", "SubmittedToAddButton", "OK", null);
+            d.dispose();
+        });
+        Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
+        cancelButton.addActionListener(evt -> {
             d.dispose();
         });
         d.show();
@@ -60,6 +68,10 @@ public class StateMachine extends StateMachineBase {
             Dialog.show("Greetings", "PreparedByAddButton", "OK", null);
             d.dispose();
         });
+        Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
+        cancelButton.addActionListener(evt -> {
+            d.dispose();
+        });
         d.show();
     }
 
@@ -69,6 +81,10 @@ public class StateMachine extends StateMachineBase {
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
         saveButton.addActionListener(evt -> {
             Dialog.show("Greetings", "InPresenceOf", "OK", null);
+            d.dispose();
+        });
+        Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
+        cancelButton.addActionListener(evt -> {
             d.dispose();
         });
         d.show();
