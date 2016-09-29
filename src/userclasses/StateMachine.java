@@ -7,6 +7,7 @@
 
 package userclasses;
 
+import ca.weblite.codename1.json.JSONObject;
 import generated.StateMachineBase;
 import com.codename1.ui.*; 
 import com.codename1.ui.events.*;
@@ -14,9 +15,11 @@ import com.codename1.ui.util.Resources;
 
 /**
  *
- * @author Your name here
+ * @author Jugraj Singh
  */
 public class StateMachine extends StateMachineBase {
+
+    private JSONObject project;
     public StateMachine(String resFile) {
         super(resFile);
         // do not modify, write code in initVars and initialize class members there,

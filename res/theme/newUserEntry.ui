@@ -13,7 +13,7 @@
     <component type="TextField" name="newUserEntryDesgTextField" cloudBoundProperty="text" cloudDestinationProperty="TextField" text="" >
       <layoutConstraint value="Center" />
     </component>
-    <component type="Label" name="Label" cloudDestinationProperty="Label" text="designation" >
+    <component type="Label" name="Label" cloudDestinationProperty="Label" text="Designation" >
       <layoutConstraint value="West" />
     </component>
   </component>
