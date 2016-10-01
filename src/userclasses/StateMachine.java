@@ -7,11 +7,18 @@
 
 package userclasses;
 
+import ca.weblite.codename1.json.JSONArray;
+import ca.weblite.codename1.json.JSONException;
 import ca.weblite.codename1.json.JSONObject;
+import com.codename1.io.Storage;
+import com.codename1.ui.list.DefaultListModel;
+import com.codename1.ui.spinner.DateSpinner;
 import generated.StateMachineBase;
 import com.codename1.ui.*; 
 import com.codename1.ui.events.*;
 import com.codename1.ui.util.Resources;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +27,7 @@ import com.codename1.ui.util.Resources;
 public class StateMachine extends StateMachineBase {
 
     private JSONObject project;
+    private static final String storageKey = "storedData";
     public StateMachine(String resFile) {
         super(resFile);
         // do not modify, write code in initVars and initialize class members there,
@@ -31,14 +39,43 @@ public class StateMachine extends StateMachineBase {
      * the constructor/class scope to avoid race conditions
      */
     protected void initVars(Resources res) {
+        initializeTheVariables();
+    }
+
+    private void initializeTheVariables(){
+        if (Storage.getInstance().exists(storageKey)) {
+            project = (JSONObject) Storage.getInstance().readObject(storageKey);
+        } else {
+            project = new JSONObject();
+        }
     }
 
     @Override
     protected void onNewProject_NewProjectDateOfTestingAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "dateOftestingDialog");
         Button saveButton = (Button) findByName("dateOfTestingSaveButton", d);
+        DateSpinner date = (DateSpinner) findByName("dateOfTestingDateSpinner",d);
+        List dateOfTesting = findNewProjectDateOfTestingList();
         saveButton.addActionListener(evt -> {
-            Dialog.show("Greetings", "DateOfTesting", "OK", null);
+            int mm = date.getCurrentMonth();
+            int dd = date.getCurrentDay();
+            int yyyy = date.getCurrentYear();
+            try {
+                if (!project.has("dateOfTesting")){
+                    project.put("dateOfTesting",new JSONArray());
+                }
+                JSONArray temp = project.getJSONArray("dateOfTesting");
+                temp.put(mm+"/"+dd+"/"+yyyy);
+                project.put("dateOfTesting",temp);
+                ArrayList t = new ArrayList();
+                for (int i=0;i<temp.length();i++){
+                    t.add(temp.get(i));
+                }
+                dateOfTesting.setModel(new DefaultListModel(t));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Dialog.show("Greetings", project.toString(), "OK", null);
             d.dispose();
         });
         Button cancelButton = (Button) findByName("dateOfTestingCancelButton",d);
@@ -52,7 +89,38 @@ public class StateMachine extends StateMachineBase {
     protected void onNewProject_NewProjectSubmittedToAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
+        TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
+        TextField organisationField = (TextField) findByName("newUserEntryOrgTextField",d);
+        TextField contactField = (TextField) findByName("newUserEntryContactTextField",d);
+        List list = findNewProjectSubmittedToList();
         saveButton.addActionListener(evt -> {
+            String name = nameField.getText();
+            String designation = designationField.getText();
+            String org = organisationField.getText();
+            String contact = contactField.getText();
+            try {
+                if (!project.has("submittedTo")) {
+                    project.put("submittedTo",new JSONArray());
+                }
+                if (!name.isEmpty()){
+                    JSONArray temp = project.getJSONArray("submittedTo");
+                    JSONObject obj = new JSONObject();
+                    obj.put("name",name);
+                    obj.put("org",org);
+                    obj.put("designation",designation);
+                    obj.put("contact",contact);
+                    temp.put(obj);
+                    project.put("submittedTo",temp);
+                    ArrayList t = new ArrayList();
+                    for (int i=0;i<temp.length();i++){
+                        t.add(temp.getJSONObject(i).getString("name"));
+                    }
+                    list.setModel(new DefaultListModel(t));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             Dialog.show("Greetings", "SubmittedToAddButton", "OK", null);
             d.dispose();
         });
