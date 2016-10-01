@@ -11,12 +11,13 @@ import ca.weblite.codename1.json.JSONArray;
 import ca.weblite.codename1.json.JSONException;
 import ca.weblite.codename1.json.JSONObject;
 import com.codename1.io.Storage;
+import com.codename1.ui.*;
+import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.list.DefaultListModel;
+import com.codename1.ui.list.ListModel;
 import com.codename1.ui.spinner.DateSpinner;
-import generated.StateMachineBase;
-import com.codename1.ui.*; 
-import com.codename1.ui.events.*;
 import com.codename1.ui.util.Resources;
+import generated.StateMachineBase;
 
 import java.util.ArrayList;
 
@@ -26,8 +27,8 @@ import java.util.ArrayList;
  */
 public class StateMachine extends StateMachineBase {
 
-    private JSONObject project;
     private static final String storageKey = "storedData";
+    private JSONObject project;
     public StateMachine(String resFile) {
         super(resFile);
         // do not modify, write code in initVars and initialize class members there,
@@ -221,5 +222,22 @@ public class StateMachine extends StateMachineBase {
             d.dispose();
         });
         d.show();
+    }
+
+    @Override
+    protected void onNewProject_NewProjectTypeOfStructureSaveButtonAction(Component c, ActionEvent event) {
+        ComboBox comboBox = findNewProjectTypeOfStructureComboBox();
+        ListModel listModel = comboBox.getModel();
+        try {
+            project.put("typeOfStructure", listModel.getItemAt(comboBox.getSelectedIndex()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected boolean initListModelNewProjectTypeOfStructureComboBox(List cmp) {
+        cmp.setModel(new com.codename1.ui.list.DefaultListModel(new String[]{"Item 1", "Item 2", "Item 3"}));
+        return true;
     }
 }

@@ -8,28 +8,51 @@
 package generated;
 
 import com.codename1.ui.*;
-import com.codename1.ui.util.*;
-import com.codename1.ui.plaf.*;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.plaf.UIManager;
+import com.codename1.ui.util.Resources;
+import com.codename1.ui.util.UIBuilder;
+
 import java.util.Hashtable;
-import com.codename1.ui.events.*;
 
 public abstract class StateMachineBase extends UIBuilder {
-    private Container aboutToShowThisContainer;
+    public static final int COMMAND_MainNewProject = 1;
     /**
      * this method should be used to initialize variables instead of
      * the constructor/class scope to avoid race conditions
      */
-    /**
-    * @deprecated use the version that accepts a resource as an argument instead
-    
-**/
-    protected void initVars() {}
-
-    protected void initVars(Resources res) {}
+    private Container aboutToShowThisContainer;
 
     public StateMachineBase(Resources res, String resPath, boolean loadTheme) {
         startApp(res, resPath, loadTheme);
     }
+
+    public StateMachineBase() {
+    }
+
+    public StateMachineBase(String resPath) {
+        this(null, resPath, true);
+    }
+
+    public StateMachineBase(Resources res) {
+        this(res, null, true);
+    }
+
+    public StateMachineBase(String resPath, boolean loadTheme) {
+        this(null, resPath, loadTheme);
+    }
+
+    public StateMachineBase(Resources res, boolean loadTheme) {
+        this(res, null, loadTheme);
+    }
+
+    /**
+    * @deprecated use the version that accepts a resource as an argument instead
+
+**/
+    protected void initVars() {}
+
+    protected void initVars(Resources res) {}
 
     public Container startApp(Resources res, String resPath, boolean loadTheme) {
         initVars();
@@ -101,25 +124,6 @@ public abstract class StateMachineBase extends UIBuilder {
             if(themes != null && themes.length > 0) {
                 UIManager.getInstance().setThemeProps(res.getTheme(themes[0]));
             }
-    }
-
-    public StateMachineBase() {
-    }
-
-    public StateMachineBase(String resPath) {
-        this(null, resPath, true);
-    }
-
-    public StateMachineBase(Resources res) {
-        this(res, null, true);
-    }
-
-    public StateMachineBase(String resPath, boolean loadTheme) {
-        this(null, resPath, loadTheme);
-    }
-
-    public StateMachineBase(Resources res, boolean loadTheme) {
-        this(res, null, loadTheme);
     }
 
     public com.codename1.ui.TextField findNewUserEntryOrgTextField(Component root) {
@@ -326,26 +330,26 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.Button findNewprojectSaveButton(Component root) {
-        return (com.codename1.ui.Button)findByName("newprojectSaveButton", root);
+    public com.codename1.ui.Button findNewBoreDataSaveButton(Component root) {
+        return (com.codename1.ui.Button) findByName("newBoreDataSaveButton", root);
     }
 
-    public com.codename1.ui.Button findNewprojectSaveButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findNewBoreDataSaveButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newBoreDataSaveButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("newprojectSaveButton", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button) findByName("newBoreDataSaveButton", aboutToShowThisContainer);
         }
         return cmp;
     }
 
-    public com.codename1.ui.Button findNewBoreDataSaveButton(Component root) {
-        return (com.codename1.ui.Button)findByName("newBoreDataSaveButton", root);
+    public com.codename1.ui.Button findNewprojectLoadDataButton(Component root) {
+        return (com.codename1.ui.Button) findByName("newprojectLoadDataButton", root);
     }
 
-    public com.codename1.ui.Button findNewBoreDataSaveButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newBoreDataSaveButton", Display.getInstance().getCurrent());
+    public com.codename1.ui.Button findNewprojectLoadDataButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newprojectLoadDataButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("newBoreDataSaveButton", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button) findByName("newprojectLoadDataButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -382,6 +386,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectTypeOfStructureSaveButton(Component root) {
+        return (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectTypeOfStructureSaveButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", Display.getInstance().getCurrent());
+        if (cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -721,8 +737,6 @@ public abstract class StateMachineBase extends UIBuilder {
         }
         return cmp;
     }
-
-    public static final int COMMAND_MainNewProject = 1;
 
     protected boolean onMainNewProject() {
         return false;
@@ -1389,8 +1403,8 @@ public abstract class StateMachineBase extends UIBuilder {
             }
         }
         if(rootContainerName.equals("newProject")) {
-            if("newprojectSaveButton".equals(c.getName())) {
-                onNewProject_NewprojectSaveButtonAction(c, event);
+            if ("newprojectLoadDataButton".equals(c.getName())) {
+                onNewProject_NewprojectLoadDataButtonAction(c, event);
                 return;
             }
             if("newProjectCancelButton".equals(c.getName())) {
@@ -1431,6 +1445,10 @@ public abstract class StateMachineBase extends UIBuilder {
             }
             if("newProjectTypeOfStructureComboBox".equals(c.getName())) {
                 onNewProject_NewProjectTypeOfStructureComboBoxAction(c, event);
+                return;
+            }
+            if ("newProjectTypeOfStructureSaveButton".equals(c.getName())) {
+                onNewProject_NewProjectTypeOfStructureSaveButtonAction(c, event);
                 return;
             }
             if("newProjectBoresList".equals(c.getName())) {
@@ -1521,7 +1539,7 @@ public abstract class StateMachineBase extends UIBuilder {
       protected void onNewUserEntry_NewUserEntryCancelButtonAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_NewprojectSaveButtonAction(Component c, ActionEvent event) {
+    protected void onNewProject_NewprojectLoadDataButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onNewProject_NewProjectCancelButtonAction(Component c, ActionEvent event) {
@@ -1552,6 +1570,9 @@ public abstract class StateMachineBase extends UIBuilder {
       }
 
       protected void onNewProject_NewProjectTypeOfStructureComboBoxAction(Component c, ActionEvent event) {
+      }
+
+    protected void onNewProject_NewProjectTypeOfStructureSaveButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onNewProject_NewProjectBoresListAction(Component c, ActionEvent event) {

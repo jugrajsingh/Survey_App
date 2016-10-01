@@ -3,7 +3,7 @@
 <component type="Form" name="newProject" cloudDestinationProperty="newProject" layout="BorderLayout" borderLayoutAbsoluteCenter="false" title="New Survey Project" >
   <component type="Container" name="Container" cloudDestinationProperty="Container" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
     <layoutConstraint value="South" />
-    <component type="Button" name="newprojectSaveButton" cloudDestinationProperty="Button" text="Save" >
+    <component type="Button" name="newprojectLoadDataButton" cloudDestinationProperty="Button" text="Load Saved Data" >
     </component>
     <component type="Button" name="newProjectCancelButton" cloudDestinationProperty="Button1" text="Cancel" >
     </component>
@@ -54,13 +54,18 @@
         <layoutConstraint value="South" />
       </component>
     </component>
-    <component type="Container" name="Container6" cloudDestinationProperty="Container6" layout="BoxLayout" boxLayoutAxis="Y" >
+    <component type="Container" name="Container6" cloudDestinationProperty="Container6" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
       <component type="Label" name="Label4" cloudDestinationProperty="Label4" text="Type of Structure" >
+        <layoutConstraint value="North" />
       </component>
       <component type="ComboBox" name="newProjectTypeOfStructureComboBox" cloudDestinationProperty="ComboBox" >
+        <layoutConstraint value="Center" />
         <stringItem value="Item 1" />
         <stringItem value="Item 2" />
         <stringItem value="Item 3" />
+      </component>
+      <component type="Button" name="newProjectTypeOfStructureSaveButton" cloudDestinationProperty="newProjectTypeOfStructureSaveButton" text="Save" >
+        <layoutConstraint value="South" />
       </component>
     </component>
     <component type="Container" name="Container7" cloudDestinationProperty="Container7" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
