@@ -67,11 +67,11 @@ public class StateMachine extends StateMachineBase {
                 JSONArray temp = project.getJSONArray("dateOfTesting");
                 temp.put(mm+"/"+dd+"/"+yyyy);
                 project.put("dateOfTesting",temp);
-                ArrayList t = new ArrayList();
+                ArrayList<Object> t = new ArrayList<>();
                 for (int i=0;i<temp.length();i++){
                     t.add(temp.get(i));
                 }
-                dateOfTesting.setModel(new DefaultListModel(t));
+                dateOfTesting.setModel(new DefaultListModel<>(t));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -112,11 +112,11 @@ public class StateMachine extends StateMachineBase {
                     obj.put("contact",contact);
                     temp.put(obj);
                     project.put("submittedTo",temp);
-                    ArrayList t = new ArrayList();
+                    ArrayList<String> t = new ArrayList<>();
                     for (int i=0;i<temp.length();i++){
                         t.add(temp.getJSONObject(i).getString("name"));
                     }
-                    list.setModel(new DefaultListModel(t));
+                    list.setModel(new DefaultListModel<>(t));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -135,7 +135,38 @@ public class StateMachine extends StateMachineBase {
     protected void onNewProject_NewProjectPreparedByAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
+        TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
+        TextField organisationField = (TextField) findByName("newUserEntryOrgTextField",d);
+        TextField contactField = (TextField) findByName("newUserEntryContactTextField",d);
+        List list = findNewProjectPreparedByList();
         saveButton.addActionListener(evt -> {
+            String name = nameField.getText();
+            String designation = designationField.getText();
+            String org = organisationField.getText();
+            String contact = contactField.getText();
+            try {
+                if (!project.has("preparedBy")) {
+                    project.put("preparedBy",new JSONArray());
+                }
+                if (!name.isEmpty()){
+                    JSONArray temp = project.getJSONArray("preparedBy");
+                    JSONObject obj = new JSONObject();
+                    obj.put("name",name);
+                    obj.put("org",org);
+                    obj.put("designation",designation);
+                    obj.put("contact",contact);
+                    temp.put(obj);
+                    project.put("preparedBy",temp);
+                    ArrayList<String> t = new ArrayList<>();
+                    for (int i=0;i<temp.length();i++){
+                        t.add(temp.getJSONObject(i).getString("name"));
+                    }
+                    list.setModel(new DefaultListModel<>(t));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             Dialog.show("Greetings", "PreparedByAddButton", "OK", null);
             d.dispose();
         });
@@ -150,7 +181,38 @@ public class StateMachine extends StateMachineBase {
     protected void onNewProject_NewProjectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
+        TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
+        TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
+        TextField organisationField = (TextField) findByName("newUserEntryOrgTextField",d);
+        TextField contactField = (TextField) findByName("newUserEntryContactTextField",d);
+        List list = findNewProjectInPresenceOfList();
         saveButton.addActionListener(evt -> {
+            String name = nameField.getText();
+            String designation = designationField.getText();
+            String org = organisationField.getText();
+            String contact = contactField.getText();
+            try {
+                if (!project.has("inPresenceOf")) {
+                    project.put("inPresenceOf", new ArrayList());
+                }
+                if (!name.isEmpty()){
+                    JSONArray temp = project.getJSONArray("inPresenceOf");
+                    JSONObject obj = new JSONObject();
+                    obj.put("name",name);
+                    obj.put("org",org);
+                    obj.put("designation",designation);
+                    obj.put("contact",contact);
+                    temp.put(obj);
+                    project.put("inPresenceOf",obj);
+                    ArrayList<String> t = new ArrayList<String>();
+                    for (int i=0;i<temp.length();i++){
+                        t.add(temp.getJSONObject(i).getString("name"));
+                    }
+                    list.setModel(new DefaultListModel<>(t));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             Dialog.show("Greetings", "InPresenceOf", "OK", null);
             d.dispose();
         });
