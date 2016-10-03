@@ -80,9 +80,7 @@ public class StateMachine extends StateMachineBase {
             d.dispose();
         });
         Button cancelButton = (Button) findByName("dateOfTestingCancelButton",d);
-        cancelButton.addActionListener(evt -> {
-            d.dispose();
-        });
+        cancelButton.addActionListener(evt -> d.dispose());
         d.show();
     }
 
@@ -126,9 +124,7 @@ public class StateMachine extends StateMachineBase {
             d.dispose();
         });
         Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
-        cancelButton.addActionListener(evt -> {
-            d.dispose();
-        });
+        cancelButton.addActionListener(evt -> d.dispose());
         d.show();
     }
 
@@ -172,9 +168,7 @@ public class StateMachine extends StateMachineBase {
             d.dispose();
         });
         Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
-        cancelButton.addActionListener(evt -> {
-            d.dispose();
-        });
+        cancelButton.addActionListener(evt -> d.dispose());
         d.show();
     }
 
@@ -205,7 +199,7 @@ public class StateMachine extends StateMachineBase {
                     obj.put("contact",contact);
                     temp.put(obj);
                     project.put("inPresenceOf",obj);
-                    ArrayList<String> t = new ArrayList<String>();
+                    ArrayList<String> t = new ArrayList<>();
                     for (int i=0;i<temp.length();i++){
                         t.add(temp.getJSONObject(i).getString("name"));
                     }
@@ -218,9 +212,7 @@ public class StateMachine extends StateMachineBase {
             d.dispose();
         });
         Button cancelButton = (Button) findByName("newUserEntryCancelButton",d);
-        cancelButton.addActionListener(evt -> {
-            d.dispose();
-        });
+        cancelButton.addActionListener(evt -> d.dispose());
         d.show();
     }
 
@@ -237,7 +229,11 @@ public class StateMachine extends StateMachineBase {
 
     @Override
     protected boolean initListModelNewProjectTypeOfStructureComboBox(List cmp) {
-        cmp.setModel(new com.codename1.ui.list.DefaultListModel(new String[]{"Item 1", "Item 2", "Item 3"}));
+        ArrayList<String> itemList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            itemList.add("item " + (i + 1));
+        }
+        cmp.setModel(new DefaultListModel<>(itemList));
         return true;
     }
 }
