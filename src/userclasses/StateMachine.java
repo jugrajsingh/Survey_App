@@ -10,6 +10,8 @@ package userclasses;
 import ca.weblite.codename1.json.JSONArray;
 import ca.weblite.codename1.json.JSONException;
 import ca.weblite.codename1.json.JSONObject;
+import com.codename1.io.ConnectionRequest;
+import com.codename1.io.NetworkManager;
 import com.codename1.io.Storage;
 import com.codename1.location.Location;
 import com.codename1.location.LocationManager;
@@ -21,6 +23,8 @@ import com.codename1.ui.spinner.DateSpinner;
 import com.codename1.ui.util.Resources;
 import generated.StateMachineBase;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 /**
@@ -354,5 +358,21 @@ public class StateMachine extends StateMachineBase {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onNewProject_NewProjectUploadDataButtonAction(Component c, ActionEvent event) {
+        String finalRequestBody = project.toString();
+        ConnectionRequest connectionRequest = new ConnectionRequest() {
+            @Override
+            protected void buildRequestBody(OutputStream os) throws IOException {
+                os.write(finalRequestBody.getBytes("UTF-8"));
+                super.buildRequestBody(os);
+            }
+        };
+        connectionRequest.setUrl("http://202.164.53.122:8080/json/");
+        connectionRequest.setContentType("application/json");
+        connectionRequest.setPost(true);
+        NetworkManager.getInstance().addToQueueAndWait(connectionRequest);
     }
 }

@@ -342,18 +342,6 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
-    public com.codename1.ui.Button findNewprojectLoadDataButton(Component root) {
-        return (com.codename1.ui.Button) findByName("newprojectLoadDataButton", root);
-    }
-
-    public com.codename1.ui.Button findNewprojectLoadDataButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newprojectLoadDataButton", Display.getInstance().getCurrent());
-        if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button) findByName("newprojectLoadDataButton", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
     public com.codename1.ui.Button findButton(Component root) {
         return (com.codename1.ui.Button)findByName("Button", root);
     }
@@ -458,6 +446,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newProjectBoresAddButton", Display.getInstance().getCurrent());
         if (cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button) findByName("newProjectBoresAddButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectUploadDataButton(Component root) {
+        return (com.codename1.ui.Button) findByName("newProjectUploadDataButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectUploadDataButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newProjectUploadDataButton", Display.getInstance().getCurrent());
+        if (cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button) findByName("newProjectUploadDataButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -1403,8 +1403,8 @@ public abstract class StateMachineBase extends UIBuilder {
             }
         }
         if(rootContainerName.equals("newProject")) {
-            if ("newprojectLoadDataButton".equals(c.getName())) {
-                onNewProject_NewprojectLoadDataButtonAction(c, event);
+            if ("newProjectUploadDataButton".equals(c.getName())) {
+                onNewProject_NewProjectUploadDataButtonAction(c, event);
                 return;
             }
             if("newProjectCancelButton".equals(c.getName())) {
@@ -1539,7 +1539,7 @@ public abstract class StateMachineBase extends UIBuilder {
       protected void onNewUserEntry_NewUserEntryCancelButtonAction(Component c, ActionEvent event) {
       }
 
-    protected void onNewProject_NewprojectLoadDataButtonAction(Component c, ActionEvent event) {
+    protected void onNewProject_NewProjectUploadDataButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onNewProject_NewProjectCancelButtonAction(Component c, ActionEvent event) {

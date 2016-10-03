@@ -3,7 +3,7 @@
 <component type="Form" name="newProject" cloudDestinationProperty="newProject" layout="BorderLayout" borderLayoutAbsoluteCenter="false" title="New Survey Project" >
   <component type="Container" name="Container" cloudDestinationProperty="Container" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
     <layoutConstraint value="South" />
-    <component type="Button" name="newprojectLoadDataButton" cloudDestinationProperty="Button" text="Load Saved Data" >
+    <component type="Button" name="newProjectUploadDataButton" cloudDestinationProperty="Button" text="UpLoad Data" >
     </component>
     <component type="Button" name="newProjectCancelButton" cloudDestinationProperty="Button1" text="Cancel" >
     </component>
