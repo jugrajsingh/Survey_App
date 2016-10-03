@@ -75,7 +75,7 @@
       <component type="List" name="newProjectBoresList" cloudDestinationProperty="List4" >
         <layoutConstraint value="Center" />
       </component>
-      <component type="Button" name="newProjectboresAddButton" cloudDestinationProperty="Button6" text="Add" >
+      <component type="Button" name="newProjectBoresAddButton" cloudDestinationProperty="Button6" text="Add" >
         <layoutConstraint value="South" />
       </component>
     </component>

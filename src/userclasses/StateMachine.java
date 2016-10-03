@@ -11,6 +11,8 @@ import ca.weblite.codename1.json.JSONArray;
 import ca.weblite.codename1.json.JSONException;
 import ca.weblite.codename1.json.JSONObject;
 import com.codename1.io.Storage;
+import com.codename1.location.Location;
+import com.codename1.location.LocationManager;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.list.DefaultListModel;
@@ -29,6 +31,7 @@ public class StateMachine extends StateMachineBase {
 
     private static final String storageKey = "storedData";
     private JSONObject project;
+    private JSONObject newBoreDataJSON;
     public StateMachine(String resFile) {
         super(resFile);
         // do not modify, write code in initVars and initialize class members there,
@@ -188,7 +191,7 @@ public class StateMachine extends StateMachineBase {
             String contact = contactField.getText();
             try {
                 if (!project.has("inPresenceOf")) {
-                    project.put("inPresenceOf", new ArrayList());
+                    project.put("inPresenceOf", new JSONArray());
                 }
                 if (!name.isEmpty()){
                     JSONArray temp = project.getJSONArray("inPresenceOf");
@@ -235,5 +238,121 @@ public class StateMachine extends StateMachineBase {
         }
         cmp.setModel(new DefaultListModel<>(itemList));
         return true;
+    }
+
+    @Override
+    protected void onNewProject_NewProjectBoresAddButtonAction(Component c, ActionEvent event) {
+        newBoreDataJSON = null;
+        showForm("newBoreEntry", null);
+    }
+
+    @Override
+    protected void onNewBoreEntry_NewBoreEntryCancelButtonAction(Component c, ActionEvent event) {
+        back();
+    }
+
+    @Override
+    protected void onNewBoreEntry_NewBoreEntrySaveButtonAction(Component c, ActionEvent event) {
+        try {
+            if (!project.has("bores")) {
+                project.put("bores", new JSONArray());
+            }
+            JSONObject ob = new JSONObject();
+            ob.put("lat", String.valueOf(findNewBoreEntryLatitudeTextField().getText()));
+            ob.put("long", String.valueOf(findNewBoreEntryLongitudeTextField().getText()));
+            newBoreDataJSON.put("locationData", ob);
+            if ((newBoreDataJSON != null) && (newBoreDataJSON.has("data"))) {
+                JSONArray temp = project.getJSONArray("bores");
+                temp.put(newBoreDataJSON);
+                project.put("bores", temp);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        back();
+    }
+
+    @Override
+    protected void onNewProject_NewProjectCancelButtonAction(Component c, ActionEvent event) {
+        back();
+    }
+
+    @Override
+    protected void onNewBoreEntry_NewBoreEntryGetLocationButtonAction(Component c, ActionEvent event) {
+        Location location = LocationManager.getLocationManager().getCurrentLocationSync();
+        findNewBoreEntryLatitudeTextField().setText(String.valueOf(location.getLatitude()));
+        findNewBoreEntryLongitudeTextField().setText(String.valueOf(location.getLongitude()));
+    }
+
+    @Override
+    protected boolean initListModelNewBoreDataList(List cmp) {
+        cmp.setModel(new com.codename1.ui.list.DefaultListModel<>());
+        return true;
+    }
+
+    @Override
+    protected void onNewBoreEntry_NewBoreDataEntryAddButtonAction(Component c, ActionEvent event) {
+        Dialog d = (Dialog) createContainer(fetchResourceFile(), "newBoreData");
+        Button saveButton = (Button) findByName("newBoreDataSaveButton", d);
+        TextField dValue = (TextField) findByName("newBoreDataDTextField", d);
+        TextField nValue = (TextField) findByName("newBoreDataNTextField", d);
+        TextField lValue = (TextField) findByName("newBoreDataLTextField", d);
+        TextField typeOfSoil = (TextField) findByName("newBoreDataTypeOfSoilTextField", d);
+        List list = findNewBoreDataList();
+        saveButton.addActionListener(evt -> {
+            String D = dValue.getText();
+            String N = nValue.getText();
+            String L = lValue.getText();
+            String TOS = typeOfSoil.getText();
+            if (!(D.isEmpty() || N.isEmpty() || L.isEmpty() || TOS.isEmpty())) {
+                try {
+                    if (newBoreDataJSON == null) {
+                        newBoreDataJSON = new JSONObject();
+                    }
+                    if (!newBoreDataJSON.has("data")) {
+                        newBoreDataJSON.put("data", new JSONArray());
+                    }
+                    JSONArray temp = newBoreDataJSON.getJSONArray("data");
+                    JSONObject obj = new JSONObject();
+                    obj.put("D", D);
+                    obj.put("N", N);
+                    obj.put("L", L);
+                    obj.put("soilType", TOS);
+                    temp.put(obj);
+                    newBoreDataJSON.put("data", temp);
+                    ArrayList<String> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        t.add("D = " + temp.getJSONObject(i).getString("D") + ", Soil type = "
+                                + temp.getJSONObject(i).getString("soilType"));
+                    }
+                    list.setModel(new DefaultListModel<>(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            d.dispose();
+        });
+        Button cancelButton = (Button) findByName("newBoreDataCancelButton", d);
+        cancelButton.addActionListener(evt -> d.dispose());
+        d.show();
+    }
+
+    @Override
+    protected void beforeNewProject(Form f) {
+        JSONArray temp;
+        try {
+            if (project.has("bores")) {
+                temp = project.getJSONArray("bores");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add("lat = " + temp.getJSONObject(i).getJSONObject("locationData").getString("lat")
+                            + ",long = " + temp.getJSONObject(i).getJSONObject("locationData").getString("long"));
+                }
+                List list = findNewProjectBoresList();
+                list.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

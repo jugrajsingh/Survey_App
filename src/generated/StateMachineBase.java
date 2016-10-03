@@ -396,20 +396,8 @@ public abstract class StateMachineBase extends UIBuilder {
 
     public com.codename1.ui.Button findNewProjectTypeOfStructureSaveButton() {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", Display.getInstance().getCurrent());
-        if (cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", aboutToShowThisContainer);
-        }
-        return cmp;
-    }
-
-    public com.codename1.ui.Button findNewProjectboresAddButton(Component root) {
-        return (com.codename1.ui.Button)findByName("newProjectboresAddButton", root);
-    }
-
-    public com.codename1.ui.Button findNewProjectboresAddButton() {
-        com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("newProjectboresAddButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
-            cmp = (com.codename1.ui.Button)findByName("newProjectboresAddButton", aboutToShowThisContainer);
+            cmp = (com.codename1.ui.Button) findByName("newProjectTypeOfStructureSaveButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -458,6 +446,18 @@ public abstract class StateMachineBase extends UIBuilder {
         com.codename1.ui.Button cmp = (com.codename1.ui.Button)findByName("dateOfTestingCancelButton", Display.getInstance().getCurrent());
         if(cmp == null && aboutToShowThisContainer != null) {
             cmp = (com.codename1.ui.Button)findByName("dateOfTestingCancelButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
+    public com.codename1.ui.Button findNewProjectBoresAddButton(Component root) {
+        return (com.codename1.ui.Button) findByName("newProjectBoresAddButton", root);
+    }
+
+    public com.codename1.ui.Button findNewProjectBoresAddButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("newProjectBoresAddButton", Display.getInstance().getCurrent());
+        if (cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button) findByName("newProjectBoresAddButton", aboutToShowThisContainer);
         }
         return cmp;
     }
@@ -1455,8 +1455,8 @@ public abstract class StateMachineBase extends UIBuilder {
                 onNewProject_NewProjectBoresListAction(c, event);
                 return;
             }
-            if("newProjectboresAddButton".equals(c.getName())) {
-                onNewProject_NewProjectboresAddButtonAction(c, event);
+            if ("newProjectBoresAddButton".equals(c.getName())) {
+                onNewProject_NewProjectBoresAddButtonAction(c, event);
                 return;
             }
         }
@@ -1578,7 +1578,7 @@ public abstract class StateMachineBase extends UIBuilder {
       protected void onNewProject_NewProjectBoresListAction(Component c, ActionEvent event) {
       }
 
-      protected void onNewProject_NewProjectboresAddButtonAction(Component c, ActionEvent event) {
+    protected void onNewProject_NewProjectBoresAddButtonAction(Component c, ActionEvent event) {
       }
 
       protected void onNewBoreData_NewBoreDataDTextFieldAction(Component c, ActionEvent event) {
