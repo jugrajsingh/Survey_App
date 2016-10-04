@@ -109,7 +109,7 @@ public class StateMachine extends StateMachineBase {
                 if (!project.has("submittedTo")) {
                     project.put("submittedTo",new JSONArray());
                 }
-                if (!name.isEmpty()){
+                if (name != null) {
                     JSONArray temp = project.getJSONArray("submittedTo");
                     JSONObject obj = new JSONObject();
                     obj.put("name",name);
@@ -153,7 +153,7 @@ public class StateMachine extends StateMachineBase {
                 if (!project.has("preparedBy")) {
                     project.put("preparedBy",new JSONArray());
                 }
-                if (!name.isEmpty()){
+                if (name != null) {
                     JSONArray temp = project.getJSONArray("preparedBy");
                     JSONObject obj = new JSONObject();
                     obj.put("name",name);
@@ -197,7 +197,7 @@ public class StateMachine extends StateMachineBase {
                 if (!project.has("inPresenceOf")) {
                     project.put("inPresenceOf", new JSONArray());
                 }
-                if (!name.isEmpty()){
+                if (name != null) {
                     JSONArray temp = project.getJSONArray("inPresenceOf");
                     JSONObject obj = new JSONObject();
                     obj.put("name",name);
@@ -308,7 +308,7 @@ public class StateMachine extends StateMachineBase {
             String N = nValue.getText();
             String L = lValue.getText();
             String TOS = typeOfSoil.getText();
-            if (!(D.isEmpty() || N.isEmpty() || L.isEmpty() || TOS.isEmpty())) {
+            if (!(D == null || N == null || L == null || TOS == null)) {
                 try {
                     if (newBoreDataJSON == null) {
                         newBoreDataJSON = new JSONObject();
