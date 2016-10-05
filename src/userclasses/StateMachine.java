@@ -49,14 +49,6 @@ public class StateMachine extends StateMachineBase {
     protected void initVars(Resources res) {
     }
 
-    private void initializeTheVariables(){
-        if (Storage.getInstance().exists(storageKey)) {
-            project = (JSONObject) Storage.getInstance().readObject(storageKey);
-        } else {
-            project = new JSONObject();
-        }
-    }
-
     @Override
     protected void onNewProject_NewProjectDateOfTestingAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "dateOftestingDialog");
@@ -445,6 +437,8 @@ public class StateMachine extends StateMachineBase {
     protected void onMain_LoadProjectAction(Component c, ActionEvent event) {
         if (project != null) {
             showForm("newProject", null);
+        } else if (Storage.getInstance().exists(storageKey)) {
+            project = (JSONObject) Storage.getInstance().readObject(storageKey);
         } else {
             Dialog.show("Error", "No Saved Data Found", Dialog.TYPE_ERROR, null, "OK", null);
         }
