@@ -47,7 +47,6 @@ public class StateMachine extends StateMachineBase {
      * the constructor/class scope to avoid race conditions
      */
     protected void initVars(Resources res) {
-        initializeTheVariables();
     }
 
     private void initializeTheVariables(){
@@ -205,7 +204,7 @@ public class StateMachine extends StateMachineBase {
                     obj.put("designation",designation);
                     obj.put("contact",contact);
                     temp.put(obj);
-                    project.put("inPresenceOf",obj);
+                    project.put("inPresenceOf", temp);
                     ArrayList<String> t = new ArrayList<>();
                     for (int i=0;i<temp.length();i++){
                         t.add(temp.getJSONObject(i).getString("name"));
@@ -289,12 +288,6 @@ public class StateMachine extends StateMachineBase {
     }
 
     @Override
-    protected boolean initListModelNewBoreDataList(List cmp) {
-        cmp.setModel(new com.codename1.ui.list.DefaultListModel<>());
-        return true;
-    }
-
-    @Override
     protected void onNewBoreEntry_NewBoreDataEntryAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newBoreData");
         Button saveButton = (Button) findByName("newBoreDataSaveButton", d);
@@ -342,25 +335,6 @@ public class StateMachine extends StateMachineBase {
     }
 
     @Override
-    protected void beforeNewProject(Form f) {
-        JSONArray temp;
-        try {
-            if (project.has("bores")) {
-                temp = project.getJSONArray("bores");
-                ArrayList<String> t = new ArrayList<>();
-                for (int i = 0; i < temp.length(); i++) {
-                    t.add("lat = " + temp.getJSONObject(i).getJSONObject("locationData").getString("lat")
-                            + ",long = " + temp.getJSONObject(i).getJSONObject("locationData").getString("long"));
-                }
-                List list = findNewProjectBoresList();
-                list.setModel(new DefaultListModel<>(t));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
     protected void onNewProject_NewProjectUploadDataButtonAction(Component c, ActionEvent event) {
         String finalRequestBody = project.toString();
         ConnectionRequest connectionRequest = new ConnectionRequest() {
@@ -374,5 +348,105 @@ public class StateMachine extends StateMachineBase {
         connectionRequest.setContentType("application/json");
         connectionRequest.setPost(true);
         NetworkManager.getInstance().addToQueueAndWait(connectionRequest);
+    }
+
+    @Override
+    protected boolean initListModelNewProjectDateOfTestingList(List cmp) {
+        try {
+            if (project.has("dateOfTesting")) {
+                JSONArray temp = project.getJSONArray("dateOfTesting");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add(String.valueOf(temp.get(i)));
+                }
+                cmp.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean initListModelNewProjectSubmittedToList(List cmp) {
+        try {
+            if (project.has("submittedTo")) {
+                JSONArray temp = project.getJSONArray("submittedTo");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add(temp.getJSONObject(i).getString("name"));
+                }
+                cmp.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean initListModelNewProjectPreparedByList(List cmp) {
+        try {
+            if (project.has("preparedBy")) {
+                JSONArray temp = project.getJSONArray("preparedBy");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add(temp.getJSONObject(i).getString("name"));
+                }
+                cmp.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean initListModelNewProjectInPresenceOfList(List cmp) {
+        try {
+            if (project.has("inPresenceOf")) {
+                JSONArray temp = project.getJSONArray("inPresenceOf");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add(temp.getJSONObject(i).getString("name"));
+                }
+                cmp.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean initListModelNewProjectBoresList(List cmp) {
+        try {
+            if (project.has("bores")) {
+                JSONArray temp = project.getJSONArray("bores");
+                ArrayList<String> t = new ArrayList<>();
+                for (int i = 0; i < temp.length(); i++) {
+                    t.add("lat = " + temp.getJSONObject(i).getJSONObject("locationData").getString("lat")
+                            + ",long = " + temp.getJSONObject(i).getJSONObject("locationData").getString("long"));
+                }
+                cmp.setModel(new DefaultListModel<>(t));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    protected void onMain_NewProjectAction(Component c, ActionEvent event) {
+        project = new JSONObject();
+    }
+
+    @Override
+    protected void onMain_LoadProjectAction(Component c, ActionEvent event) {
+        if (project != null) {
+            showForm("newProject", null);
+        } else {
+            Dialog.show("Error", "No Saved Data Found", "OK", null);
+        }
     }
 }

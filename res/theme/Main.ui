@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <component type="Form" name="Main" cloudDestinationProperty="Main" layout="BoxLayout" boxLayoutAxis="Y" title="Civil Survey" >
-  <component type="Button" name="Button" cloudDestinationProperty="Button" commandName="New Project" commandId="1" commandAction="newProject" commandBack="false" text="New Project" >
+  <component type="Button" name="newProject" cloudDestinationProperty="Button" commandName="New Project" commandId="1" commandAction="newProject" commandBack="false" text="New Project" >
+  </component>
+  <component type="Button" name="loadProject" cloudDestinationProperty="loadProject" text="Load Project" >
   </component>
 </component>
