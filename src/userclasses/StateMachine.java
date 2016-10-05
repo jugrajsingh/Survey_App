@@ -446,7 +446,7 @@ public class StateMachine extends StateMachineBase {
         if (project != null) {
             showForm("newProject", null);
         } else {
-            Dialog.show("Error", "No Saved Data Found", "OK", null);
+            Dialog.show("Error", "No Saved Data Found", Dialog.TYPE_ERROR, null, "OK", null);
         }
     }
 }
