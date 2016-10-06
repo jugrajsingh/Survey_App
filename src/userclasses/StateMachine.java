@@ -52,6 +52,7 @@ public class StateMachine extends StateMachineBase {
     @Override
     protected void onNewProject_NewProjectDateOfTestingAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "dateOftestingDialog");
+        d.setDisposeWhenPointerOutOfBounds(true);
         Button saveButton = (Button) findByName("dateOfTestingSaveButton", d);
         DateSpinner date = (DateSpinner) findByName("dateOfTestingDateSpinner",d);
         List dateOfTesting = findNewProjectDateOfTestingList();
@@ -85,6 +86,7 @@ public class StateMachine extends StateMachineBase {
     @Override
     protected void onNewProject_NewProjectSubmittedToAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        d.setDisposeWhenPointerOutOfBounds(true);
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
         TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
         TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
@@ -129,6 +131,7 @@ public class StateMachine extends StateMachineBase {
     @Override
     protected void onNewProject_NewProjectPreparedByAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        d.setDisposeWhenPointerOutOfBounds(true);
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
         TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
         TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
@@ -173,6 +176,7 @@ public class StateMachine extends StateMachineBase {
     @Override
     protected void onNewProject_NewProjectInPresenceOfAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+        d.setDisposeWhenPointerOutOfBounds(true);
         Button saveButton = (Button) findByName("newUserEntrySaveButton", d);
         TextField nameField = (TextField) findByName("newUserEntryNameTextField",d);
         TextField designationField = (TextField) findByName("newUserEntryDesgTextField",d);
@@ -282,6 +286,7 @@ public class StateMachine extends StateMachineBase {
     @Override
     protected void onNewBoreEntry_NewBoreDataEntryAddButtonAction(Component c, ActionEvent event) {
         Dialog d = (Dialog) createContainer(fetchResourceFile(), "newBoreData");
+        d.setDisposeWhenPointerOutOfBounds(true);
         Button saveButton = (Button) findByName("newBoreDataSaveButton", d);
         TextField dValue = (TextField) findByName("newBoreDataDTextField", d);
         TextField nValue = (TextField) findByName("newBoreDataNTextField", d);
@@ -441,6 +446,15 @@ public class StateMachine extends StateMachineBase {
             project = (JSONObject) Storage.getInstance().readObject(storageKey);
         } else {
             Dialog.show("Error", "No Saved Data Found", Dialog.TYPE_ERROR, null, "OK", null);
+        }
+    }
+
+    @Override
+    protected void onNewProject_NewProjectDateOfTestingListAction(Component c, ActionEvent event) {
+        if (event.isLongEvent()) {
+            Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
+            d.setDisposeWhenPointerOutOfBounds(true);
+            d.show();
         }
     }
 }

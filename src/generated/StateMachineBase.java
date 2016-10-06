@@ -354,6 +354,18 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.Button findContextMenuEditButton(Component root) {
+        return (com.codename1.ui.Button) findByName("contextMenuEditButton", root);
+    }
+
+    public com.codename1.ui.Button findContextMenuEditButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("contextMenuEditButton", Display.getInstance().getCurrent());
+        if (cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button) findByName("contextMenuEditButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     public com.codename1.ui.Button findNewProjectPreparedByAddButton(Component root) {
         return (com.codename1.ui.Button)findByName("newProjectPreparedByAddButton", root);
     }
@@ -750,6 +762,18 @@ public abstract class StateMachineBase extends UIBuilder {
         return cmp;
     }
 
+    public com.codename1.ui.Button findContextMenuDeleteButton(Component root) {
+        return (com.codename1.ui.Button) findByName("contextMenuDeleteButton", root);
+    }
+
+    public com.codename1.ui.Button findContextMenuDeleteButton() {
+        com.codename1.ui.Button cmp = (com.codename1.ui.Button) findByName("contextMenuDeleteButton", Display.getInstance().getCurrent());
+        if (cmp == null && aboutToShowThisContainer != null) {
+            cmp = (com.codename1.ui.Button) findByName("contextMenuDeleteButton", aboutToShowThisContainer);
+        }
+        return cmp;
+    }
+
     protected boolean onMainNewProject() {
         return false;
     }
@@ -800,6 +824,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(f.getName())) {
+            exitContextMenu(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(f.getName())) {
             exitMain(f);
             aboutToShowThisContainer = null;
@@ -827,6 +857,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void exitNewBoreData(Form f) {
+    }
+
+
+    protected void exitContextMenu(Form f) {
     }
 
 
@@ -865,6 +899,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(f.getName())) {
+            beforeContextMenu(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(f.getName())) {
             beforeMain(f);
             aboutToShowThisContainer = null;
@@ -892,6 +932,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void beforeNewBoreData(Form f) {
+    }
+
+
+    protected void beforeContextMenu(Form f) {
     }
 
 
@@ -930,6 +974,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(c.getName())) {
+            beforeContainerContextMenu(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(c.getName())) {
             beforeContainerMain(c);
             aboutToShowThisContainer = null;
@@ -957,6 +1007,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void beforeContainerNewBoreData(Container c) {
+    }
+
+
+    protected void beforeContainerContextMenu(Container c) {
     }
 
 
@@ -994,6 +1048,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(f.getName())) {
+            postContextMenu(f);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(f.getName())) {
             postMain(f);
             aboutToShowThisContainer = null;
@@ -1021,6 +1081,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void postNewBoreData(Form f) {
+    }
+
+
+    protected void postContextMenu(Form f) {
     }
 
 
@@ -1058,6 +1122,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(c.getName())) {
+            postContainerContextMenu(c);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(c.getName())) {
             postContainerMain(c);
             aboutToShowThisContainer = null;
@@ -1085,6 +1155,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void postContainerNewBoreData(Container c) {
+    }
+
+
+    protected void postContainerContextMenu(Container c) {
     }
 
 
@@ -1122,6 +1196,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(rootName)) {
+            onCreateContextMenu();
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(rootName)) {
             onCreateMain();
             aboutToShowThisContainer = null;
@@ -1149,6 +1229,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void onCreateNewBoreData() {
+    }
+
+
+    protected void onCreateContextMenu() {
     }
 
 
@@ -1187,6 +1271,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return h;
         }
 
+        if ("contextMenu".equals(f.getName())) {
+            getStateContextMenu(f, h);
+            aboutToShowThisContainer = null;
+            return h;
+        }
+
         if("Main".equals(f.getName())) {
             getStateMain(f, h);
             aboutToShowThisContainer = null;
@@ -1214,6 +1304,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void getStateNewBoreData(Form f, Hashtable h) {
+    }
+
+
+    protected void getStateContextMenu(Form f, Hashtable h) {
     }
 
 
@@ -1252,6 +1346,12 @@ public abstract class StateMachineBase extends UIBuilder {
             return;
         }
 
+        if ("contextMenu".equals(f.getName())) {
+            setStateContextMenu(f, state);
+            aboutToShowThisContainer = null;
+            return;
+        }
+
         if("Main".equals(f.getName())) {
             setStateMain(f, state);
             aboutToShowThisContainer = null;
@@ -1279,6 +1379,10 @@ public abstract class StateMachineBase extends UIBuilder {
 
 
     protected void setStateNewBoreData(Form f, Hashtable state) {
+    }
+
+
+    protected void setStateContextMenu(Form f, Hashtable state) {
     }
 
 
@@ -1498,6 +1602,16 @@ public abstract class StateMachineBase extends UIBuilder {
                 return;
             }
         }
+        if (rootContainerName.equals("contextMenu")) {
+            if ("contextMenuEditButton".equals(c.getName())) {
+                onContextMenu_ContextMenuEditButtonAction(c, event);
+                return;
+            }
+            if ("contextMenuDeleteButton".equals(c.getName())) {
+                onContextMenu_ContextMenuDeleteButtonAction(c, event);
+                return;
+            }
+        }
         if(rootContainerName.equals("Main")) {
             if ("newProject".equals(c.getName())) {
                 onMain_NewProjectAction(c, event);
@@ -1614,6 +1728,12 @@ public abstract class StateMachineBase extends UIBuilder {
 
       protected void onNewBoreData_NewBoreDataCancelButtonAction(Component c, ActionEvent event) {
       }
+
+    protected void onContextMenu_ContextMenuEditButtonAction(Component c, ActionEvent event) {
+    }
+
+    protected void onContextMenu_ContextMenuDeleteButtonAction(Component c, ActionEvent event) {
+    }
 
     protected void onMain_NewProjectAction(Component c, ActionEvent event) {
     }
