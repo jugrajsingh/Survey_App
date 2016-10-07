@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Dialog" name="contextMenu" cloudDestinationProperty="contextMenu" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Button" name="contextMenuEditButton" cloudDestinationProperty="Button" text="Edit" >
+  </component>
+  <component type="Button" name="contextMenuDeleteButton" cloudDestinationProperty="Button1" text="Delete" >
+  </component>
+</component>
