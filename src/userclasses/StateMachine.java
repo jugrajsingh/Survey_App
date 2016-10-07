@@ -17,7 +17,6 @@ import com.codename1.location.Location;
 import com.codename1.location.LocationManager;
 import com.codename1.ui.*;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.list.DefaultListModel;
 import com.codename1.ui.list.ListModel;
 import com.codename1.ui.spinner.DateSpinner;
@@ -455,20 +454,51 @@ public class StateMachine extends StateMachineBase {
         if (event.isLongEvent()) {
             Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
             Button edit = (Button) findByName("contextMenuEditButton", d);
-            edit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            edit.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                Dialog d2 = (Dialog) createContainer(fetchResourceFile(), "dateOftestingDialog");
+                d2.setDisposeWhenPointerOutOfBounds(true);
+                DateSpinner date = (DateSpinner) findByName("dateOfTestingDateSpinner", d2);
+                Button saveButton = (Button) findByName("dateOfTestingSaveButton", d2);
+                int selectedDataIndex = list.getSelectedIndex();
+                saveButton.addActionListener(evt1 -> {
+                    int mm = date.getCurrentMonth();
+                    int dd = date.getCurrentDay();
+                    int yyyy = date.getCurrentYear();
+                    try {
+                        if (!project.has("dateOfTesting")) {
+                            project.put("dateOfTesting", new JSONArray());
+                        }
+                        JSONArray temp = project.getJSONArray("dateOfTesting");
+                        ArrayList<String> t = new ArrayList<>();
+                        for (int i = 0; i < temp.length(); i++) {
+                            if (i == selectedDataIndex) {
+                                t.add(mm + "/" + dd + "/" + yyyy);
+                            } else {
+                                t.add(String.valueOf(temp.get(i)));
+                            }
+                        }
+                        project.put("dateOfTesting", new JSONArray(t));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Dialog.show("Greetings", project.toString(), "OK", null);
+                    d2.dispose();
+                });
+                Button cancelButton = (Button) findByName("dateOfTestingCancelButton", d2);
+                cancelButton.addActionListener(evt1 -> d2.dispose());
+                String selectedData = String.valueOf(list.getSelectedItem());
+                String[] splitSelectedData = selectedData.split("/");
+                date.setCurrentMonth(Integer.parseInt(splitSelectedData[0]));
+                date.setCurrentDay(Integer.parseInt(splitSelectedData[1]));
+                date.setCurrentYear(Integer.parseInt(splitSelectedData[2]));
+                d2.show();
+                d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
-            delete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            delete.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
@@ -480,20 +510,14 @@ public class StateMachine extends StateMachineBase {
         if (event.isLongEvent()) {
             Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
             Button edit = (Button) findByName("contextMenuEditButton", d);
-            edit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            edit.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
-            delete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            delete.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
@@ -505,20 +529,14 @@ public class StateMachine extends StateMachineBase {
         if (event.isLongEvent()) {
             Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
             Button edit = (Button) findByName("contextMenuEditButton", d);
-            edit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            edit.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
-            delete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            delete.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
@@ -530,20 +548,14 @@ public class StateMachine extends StateMachineBase {
         if (event.isLongEvent()) {
             Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
             Button edit = (Button) findByName("contextMenuEditButton", d);
-            edit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            edit.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
-            delete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            delete.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
@@ -555,20 +567,14 @@ public class StateMachine extends StateMachineBase {
         if (event.isLongEvent()) {
             Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
             Button edit = (Button) findByName("contextMenuEditButton", d);
-            edit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            edit.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
-            delete.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    List list = (List) event.getSource();
-                    d.dispose();
-                }
+            delete.addActionListener(evt -> {
+                List list = (List) event.getSource();
+                d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
