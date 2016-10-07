@@ -525,7 +525,59 @@ public class StateMachine extends StateMachineBase {
             Button edit = (Button) findByName("contextMenuEditButton", d);
             edit.addActionListener(evt -> {
                 List list = (List) event.getSource();
-                d.dispose();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONObject object = project.getJSONArray("submittedTo").getJSONObject(selectedDataIndex);
+                    Dialog d2 = (Dialog) createContainer(fetchResourceFile(), "newUserEntry");
+                    d2.setDisposeWhenPointerOutOfBounds(true);
+                    TextField nameField = (TextField) findByName("newUserEntryNameTextField", d2);
+                    nameField.setText(object.getString("name"));
+                    TextField designationField = (TextField) findByName("newUserEntryDesgTextField", d2);
+                    designationField.setText(object.getString("designation"));
+                    TextField organisationField = (TextField) findByName("newUserEntryOrgTextField", d2);
+                    organisationField.setText(object.getString("org"));
+                    TextField contactField = (TextField) findByName("newUserEntryContactTextField", d2);
+                    contactField.setText(object.getString("contact"));
+                    Button saveButton = (Button) findByName("newUserEntrySaveButton", d2);
+                    saveButton.addActionListener(evt1 -> {
+                        String name = nameField.getText();
+                        String designation = designationField.getText();
+                        String org = organisationField.getText();
+                        String contact = contactField.getText();
+                        try {
+                            if (!project.has("submittedTo")) {
+                                project.put("submittedTo", new JSONArray());
+                            }
+                            if (name.length() > 0) {
+                                JSONArray temp = project.getJSONArray("submittedTo");
+                                JSONObject obj = new JSONObject();
+                                obj.put("name", name);
+                                obj.put("org", org);
+                                obj.put("designation", designation);
+                                obj.put("contact", contact);
+                                ArrayList<Object> arrayList = new ArrayList<>();
+                                for (int i = 0; i < temp.length(); i++) {
+                                    if (i == selectedDataIndex) {
+                                        arrayList.add(obj);
+                                    } else {
+                                        arrayList.add(temp.getJSONObject(i));
+                                    }
+                                }
+                                project.put("submittedTo", new JSONArray(arrayList));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Dialog.show("Greetings", "SubmittedToAddButton", "OK", null);
+                        d2.dispose();
+                    });
+                    Button cancelButton = (Button) findByName("newUserEntryCancelButton", d2);
+                    cancelButton.addActionListener(evt1 -> d2.dispose());
+                    d2.show();
+                    d.dispose();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
