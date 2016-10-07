@@ -770,6 +770,7 @@ public class StateMachine extends StateMachineBase {
             Button edit = (Button) findByName("contextMenuEditButton", d);
             edit.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
                 d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
