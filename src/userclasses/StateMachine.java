@@ -498,6 +498,19 @@ public class StateMachine extends StateMachineBase {
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONArray temp = project.getJSONArray("dateOfTesting");
+                    ArrayList<String> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (i != selectedDataIndex) {
+                            t.add(String.valueOf(temp.get(i)));
+                        }
+                    }
+                    project.put("dateOfTesting", new JSONArray(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
@@ -517,6 +530,19 @@ public class StateMachine extends StateMachineBase {
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONArray temp = project.getJSONArray("submittedTo");
+                    ArrayList<Object> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (i != selectedDataIndex) {
+                            t.add(temp.get(i));
+                        }
+                    }
+                    project.put("submittedTo", new JSONArray(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
@@ -536,6 +562,19 @@ public class StateMachine extends StateMachineBase {
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONArray temp = project.getJSONArray("preparedBy");
+                    ArrayList<Object> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (i != selectedDataIndex) {
+                            t.add(temp.get(i));
+                        }
+                    }
+                    project.put("preparedBy", new JSONArray(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
@@ -555,6 +594,19 @@ public class StateMachine extends StateMachineBase {
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONArray temp = project.getJSONArray("inPresenceOf");
+                    ArrayList<Object> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (i != selectedDataIndex) {
+                            t.add(temp.get(i));
+                        }
+                    }
+                    project.put("inPresenceOf", new JSONArray(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);
@@ -574,6 +626,19 @@ public class StateMachine extends StateMachineBase {
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
             delete.addActionListener(evt -> {
                 List list = (List) event.getSource();
+                int selectedDataIndex = list.getSelectedIndex();
+                try {
+                    JSONArray temp = project.getJSONArray("bores");
+                    ArrayList<Object> t = new ArrayList<>();
+                    for (int i = 0; i < temp.length(); i++) {
+                        if (i != selectedDataIndex) {
+                            t.add(temp.get(i));
+                        }
+                    }
+                    project.put("bores", new JSONArray(t));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             d.setDisposeWhenPointerOutOfBounds(true);

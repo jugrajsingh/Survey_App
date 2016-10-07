@@ -32,9 +32,6 @@
       </component>
       <component type="List" name="newBoreDataList" cloudDestinationProperty="List" >
         <layoutConstraint value="Center" />
-        <stringItem value="Item 1" />
-        <stringItem value="Item 2" />
-        <stringItem value="Item 3" />
       </component>
       <component type="Button" name="newBoreDataEntryAddButton" cloudDestinationProperty="Button3" text="Add" >
         <layoutConstraint value="South" />
