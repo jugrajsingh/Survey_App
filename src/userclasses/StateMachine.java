@@ -457,4 +457,40 @@ public class StateMachine extends StateMachineBase {
             d.show();
         }
     }
+
+    @Override
+    protected void onNewProject_NewProjectSubmittedToListAction(Component c, ActionEvent event) {
+        if (event.isLongEvent()) {
+            Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
+            d.setDisposeWhenPointerOutOfBounds(true);
+            d.show();
+        }
+    }
+
+    @Override
+    protected void onNewProject_NewProjectPreparedByListAction(Component c, ActionEvent event) {
+        if (event.isLongEvent()) {
+            Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
+            d.setDisposeWhenPointerOutOfBounds(true);
+            d.show();
+        }
+    }
+
+    @Override
+    protected void onNewProject_NewProjectInPresenceOfListAction(Component c, ActionEvent event) {
+        if (event.isLongEvent()) {
+            Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
+            d.setDisposeWhenPointerOutOfBounds(true);
+            d.show();
+        }
+    }
+
+    @Override
+    protected void onNewProject_NewProjectBoresListAction(Component c, ActionEvent event) {
+        if (event.isLongEvent()) {
+            Dialog d = (Dialog) createContainer(fetchResourceFile(), "contextMenu");
+            d.setDisposeWhenPointerOutOfBounds(true);
+            d.show();
+        }
+    }
 }
