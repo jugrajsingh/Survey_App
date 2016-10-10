@@ -481,10 +481,10 @@ public class StateMachine extends StateMachineBase {
                 Button cancelButton = (Button) findByName("dateOfTestingCancelButton", d2);
                 cancelButton.addActionListener(evt1 -> d2.dispose());
                 String selectedData = String.valueOf(list.getSelectedItem());
-                String[] splitSelectedData = selectedData.split("/");
-                date.setCurrentMonth(Integer.parseInt(splitSelectedData[0]));
-                date.setCurrentDay(Integer.parseInt(splitSelectedData[1]));
-                date.setCurrentYear(Integer.parseInt(splitSelectedData[2]));
+                //String[] splitSelectedData = selectedData.split("/");
+                //date.setCurrentMonth(Integer.parseInt(splitSelectedData[0]));
+                //date.setCurrentDay(Integer.parseInt(splitSelectedData[1]));
+                // date.setCurrentYear(Integer.parseInt(splitSelectedData[2]));
                 d2.show();
                 d.dispose();
             });
@@ -771,7 +771,13 @@ public class StateMachine extends StateMachineBase {
             edit.addActionListener(evt -> {
                 List list = (List) event.getSource();
                 int selectedDataIndex = list.getSelectedIndex();
-                //Edit Function for Bore
+                try {
+                    /*newBoreDataJSON =*/
+                    project.getJSONArray("bores").getJSONObject(selectedDataIndex);
+                    showForm("newBoreEntry", null);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 d.dispose();
             });
             Button delete = (Button) findByName("contextMenuDeleteButton", d);
@@ -795,5 +801,20 @@ public class StateMachine extends StateMachineBase {
             d.setDisposeWhenPointerOutOfBounds(true);
             d.show();
         }
+    }
+
+    @Override
+    protected void beforeNewBoreEntry(Form f) {
+        /*
+        if (newBoreDataJSON != null) {
+            TextField latitude = findNewBoreEntryLatitudeTextField();
+            TextField longitude = findNewBoreEntryLongitudeTextField();
+            try {
+                JSONObject locationData = newBoreDataJSON.getJSONObject("locationData");
+                latitude.setText(locationData.getString("lat"));
+                longitude.setText(locationData.getString("long"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }*/
     }
 }
